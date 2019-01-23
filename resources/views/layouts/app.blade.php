@@ -37,11 +37,11 @@
                         Wallapush
                     </span> 
                     &nbsp;
-                    <a class="navbar-brand" href="{{ url('/anuncio') }}">
+                    <a class="navbar-brand" href="{{ url('/listAnuncios') }}">
                         Anuncios
                     </a> 
                     &nbsp;
-                    <a class="navbar-brand" href="{{ url('/categoria') }}">
+                    <a class="navbar-brand" href="{{ url('/listCategorias') }}">
                         Categorias
                     </a> 
                     &nbsp;

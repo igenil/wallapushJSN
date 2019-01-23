@@ -50,12 +50,6 @@
                 </label>
                 <input id="descripcion" class="form-control" name="descripcion" value="{{ old('descripcion') }}" />
         </div>
-        <div class="form-group">
-                <label for="vendedor" class="col-md-12 control-label">
-                    {{ __("Vendedor") }}
-                </label>
-                <input id="id_vendedor" class="form-control" name="id_vendedor" value="{{ old('vendedor') }}" />
-        </div>
         <button type="submit" name="addanuncio" class="btn btn-success">
             {{ __("Añadir anuncio") }}
         </button>

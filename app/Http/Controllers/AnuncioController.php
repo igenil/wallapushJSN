@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Anuncio;
+use App\Categoria;
+
 use App\Http\Requests\AnuncioRequest;
+
+
 class AnuncioController extends Controller
 {
     public function index()
@@ -15,7 +19,7 @@ class AnuncioController extends Controller
 
     public function indexaddanuncio()
     {
-        return view("anuncio.create");
+        $categorias=Categoria::all();
     }
 
     public function indexeditanuncio($id){
@@ -25,9 +29,7 @@ class AnuncioController extends Controller
 
     public function store(AnuncioRequest $request)
     {
-        Anuncio::create($request->input());
-
-        return redirect('/anuncio')->with('message', ['success', __("Anuncio creado correctamente!")]);
+        
     }
 
     public function update(AnuncioRequest $request, $id)
