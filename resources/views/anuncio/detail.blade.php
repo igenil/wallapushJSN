@@ -11,7 +11,6 @@
               <td>Estado</td>
               <td>Vendido</td>
               <td>Descripcion</td>
-              <td>Vendedor</td>
               <td>
               <td>
             </tr>
@@ -25,7 +24,6 @@
                 <td>{{$anuncio->estado}}</td>
                 <td>{{$anuncio->vendido}}</td>
                 <td>{{$anuncio->descripcion}}</td>
-                <td>{{$anuncio->id_vendedor}}</td>
                 <td style="width:1%;">
                     <a href="editanuncio/{{$anuncio->id}}">
                         <button class = "btn btn-primary"><span class="fas fa-pencil-alt" ></span></button>

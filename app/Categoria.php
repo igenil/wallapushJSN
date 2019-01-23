@@ -10,6 +10,6 @@ class Categoria extends Model
 
     public function anuncio()
     {
-        return $this->hasMany(Categoria::class);
+        return $this->hasMany(Anuncio::class);
     }
 }
