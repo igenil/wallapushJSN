@@ -3,12 +3,14 @@
 @section('content')
 
 <div class="container">
+    <br>
     <h3 style="text-align: center">LISTA DE CATEGORIAS</h3>
     
     <div style="text-align: center; ">
         <br>
-            <button class="btn btn-primary"  data-toggle="modal" data-target="#create" > Añadir </button>
-        <br/>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" > Añadir </button>
+        <br>
+        <br>
         <table class="table">
             <thead>
             <tr>
@@ -39,23 +41,29 @@
     </div>
 </div>
 
-<div class="modal fade" id="create" tabindex="-1" role="dialog">
+<div class="modal fade" id="exampleModal"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Listado 2: Peticiones por ciclo.</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <p>Modal body text goes here.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Save changes</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <div class="form-group">
+                  <label for="exampleFormControlSelect1">Grados</label>
+                  <select class="form-control" id="exampleFormControlSelect1" name="id_grade">
+                    <option value="" selected>Selecciona un grado...</option>
+                  </select>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary">Filtrar</button>
+              </div>
         </div>
       </div>
     </div>
   </div>
+  
 @endsection
