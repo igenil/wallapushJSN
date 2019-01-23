@@ -83,8 +83,9 @@ class CategoriaController extends Controller
      */
     public function destroy($id)
     {
-        $categoria = Categoria::find($id);
-        $categoria->delete();      
-        return back();
+        $categorias = Categoria::find($id);
+        $categorias->delete(); 
+        $categorias = Categoria::All();      
+        return view("categorias.detail", compact('categorias'))->with('correcto',"Categoria eliminada correctamente");
     }
 }

@@ -2,7 +2,7 @@
 @section('content')
 <center>
     <div class="alert alert-secondary"  role="alert">
-        <form method="POST" action="/editCategoriaForm/{{$categoria->id}}">
+        <form method="POST" action="editCategoriaForm/{{$categoria->id}}">
             {{ csrf_field() }}
             <table>
                 <tr>
