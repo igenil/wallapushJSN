@@ -72,7 +72,7 @@
                 </div>
 
                 <button type="submit" name="addanuncio" class="btn btn-success">
-                    {{ __("Añadir anuncio") }}
+                    {{ __("Añadir") }}
                 </button>
                 &nbsp;&nbsp;&nbsp;
                 <a href="{{ url('/listAnuncios') }}">  

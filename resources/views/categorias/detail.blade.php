@@ -3,12 +3,14 @@
 @section('content')
 
 <div class="container">
+    <br>
     <h3 style="text-align: center">LISTA DE CATEGORIAS</h3>
     
     <div style="text-align: center; ">
         <br>
             <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" > Añadir </button>
-        <br/>
+        <br>
+        <br>
         <table class="table">
             <thead>
             <tr>
