@@ -58,8 +58,6 @@ Route::post('addanuncio', 'AnuncioController@store');
 Route::delete('anuncio/{id}', 'AnuncioController@destroy');
 Route::post('editanuncio/{id}', 'AnuncioController@update');
 
-// E-mail verification
-Route::get('/register/verify/{code}', 'GuestController@verify');
 
 //Editar un usuario
 //Route::get('/edituser/{id}','Controller@edit');
