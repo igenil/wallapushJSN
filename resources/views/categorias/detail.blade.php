@@ -7,7 +7,7 @@
     
     <div style="text-align: center; ">
         <br>
-            <a class="btn btn-primary" href="addCategoria/"> Añadir </a>
+            <button class="btn btn-primary"  data-toggle="modal" data-target="#create" > Añadir </button>
         <br/>
         <table class="table">
             <thead>
@@ -21,7 +21,7 @@
                 <tr>
                     <td>{{$categoria->nombre}}</td>
                     <td>
-                        <a class="btn btn-info" href="editCategoria/{{$categoria->id}}">
+                        <a class="btn btn-info" data-toggle="modal" href="editCategoria/{{$categoria->id}}">
                             Editar 
                         </a>
                     </td>
@@ -38,4 +38,24 @@
         </table>
     </div>
 </div>
+
+<div class="modal fade" id="create" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 @endsection
