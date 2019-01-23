@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 use App\Anuncio;
 use App\Categoria;
+use App\User;
 
 use App\Http\Requests\AnuncioRequest;
-
 
 class AnuncioController extends Controller
 {
@@ -20,6 +22,9 @@ class AnuncioController extends Controller
     public function indexaddanuncio()
     {
         $categorias=Categoria::all();
+        $usuarios=User::all();
+
+        return view('anuncio.create', compact('categorias', 'usuarios'));
     }
 
     public function indexeditanuncio($id){
@@ -28,8 +33,22 @@ class AnuncioController extends Controller
     }
 
     public function store(AnuncioRequest $request)
-    {
-        
+    { 
+        $user=Auth::id();
+        $anuncio = new Anuncio(array(
+            'producto' => $request->get('producto'),
+            'id_categoria' => $request->get('id_categoria'),
+            'precio' => $request->get('precio'),
+            'estado' => $request->get('estado'),
+            'nuevo' => $request->get('nuevo'),
+            'vendido' => $request->get('vendido'),
+            'descripcion' => $request->get('descripcion'),
+            'img' => $request->get('img'),  
+            'id_vendedor' => $user,
+        ));
+
+        $anuncio->save();
+        return redirect('/listAnuncios');
     }
 
     public function update(AnuncioRequest $request, $id)

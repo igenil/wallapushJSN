@@ -54,7 +54,7 @@ Route::post('/editCategoria/editCategoriaForm/{id}', 'CategoriaController@update
 Route::get('listAnuncios', 'AnuncioController@index');
 Route::get('addanuncio', 'AnuncioController@indexaddanuncio');
 Route::get('editanuncio/{id}', 'AnuncioController@indexeditanuncio');
-Route::post('addanuncio', 'AnuncioController@store');
+Route::post('addanuncio1', 'AnuncioController@store');
 Route::delete('anuncio/{id}', 'AnuncioController@destroy');
 Route::post('editanuncio/{id}', 'AnuncioController@update');
 
