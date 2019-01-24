@@ -29,7 +29,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ url('/listAnuncios') }}">
+                    <a class="nav-link" href="{{ url('/anuncios') }}">
                         Anuncios
                     </a> 
                 </li>
@@ -38,9 +38,9 @@
                         Categorias
                     </a> 
                 </li>
-                <li class="nav-item">
+                <li class="nav-item px-lg-5">
                     <a class="nav-link" href="{{ url('/addanuncio') }}">
-                        Vender
+                        <button type="button" class="btn btn-sm btn-outline-success"><i class="fas fa-plus-circle"></i>  Subir Producto</button>                       
                     </a>
                 </li>
               </ul>
