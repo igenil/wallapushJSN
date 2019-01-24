@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Categoria;
 
 class Anuncio extends Model
 {
@@ -14,7 +14,7 @@ class Anuncio extends Model
 
     public function categoria()
     {
-        return $this->hasOne(Anuncio::class);
+        return $this->hasOne(Categoria::class);
     }
 
     public function usuario()
