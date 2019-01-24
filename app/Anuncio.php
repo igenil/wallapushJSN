@@ -19,6 +19,6 @@ class Anuncio extends Model
 
     public function usuario()
     {
-        return $this->BelongsTo(Anuncio::class);
+        return $this->belongsTo(Anuncio::class, 'id_vendedor');
     }
 }
