@@ -47,11 +47,9 @@ class AnuncioController extends Controller
             'producto' => $request->get('producto'),
             'id_categoria' => $request->get('id_categoria'),
             'precio' => $request->get('precio'),
-            'estado' => $request->get('estado'),
             'nuevo' => $request->get('nuevo'),
             'vendido' => $request->get('vendido'),
             'descripcion' => $request->get('descripcion'),
-            'img' => $request->get('img'),  
             'id_vendedor' => $user,
         ));
 
@@ -65,12 +63,11 @@ class AnuncioController extends Controller
         $anuncio -> producto = $request -> producto;
         $anuncio -> id_categoria = $request -> id_categoria;
         $anuncio -> precio = $request -> precio;
-        $anuncio -> estado = $request -> estado;
         $anuncio -> vendido = $request -> vendido;
         $anuncio -> descripcion = $request -> descripcion;
         $anuncio -> id_vendedor = $request -> id_vendedor;
         $anuncio -> save();
-        return redirect('/company')->with('message', ['success', __("Company edited successfully")]);
+        return redirect('/listAnuncios')->with('message', ['success', __("Anuncio edited successfully")]);
     }
 
     public function destroy($id)

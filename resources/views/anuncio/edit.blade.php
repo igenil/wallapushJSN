@@ -1,8 +1,9 @@
 @extends('layouts.app')
 @section('content')
 <div style="width: 80%; text-align: left; margin: 0 auto;">
-    <form method="POST" action="{{$anuncio->id}}">
+    <form method="POST" action="{{url('editanuncio')}}/{{$anuncio->id}}">
         {{ csrf_field() }}
+        {{ method_field ('PUT')}}
         <div class="form-group">
             <label for="producto" class="col-md-12 control-label">
                 {{ __("Producto") }}
@@ -28,10 +29,14 @@
             <input id="estado" class="form-control" name="estado" value="{{$anuncio->estado }}" />
         </div>
         <div class="form-group">
-            <label for="nuevo" class="col-md-12 control-label">
-                {{ __("Nuevo") }}
+            <label for="vendido" class="col-md-12 control-label">
+                    {{ __("Vendido") }}
+                <select class="form-control" name="vendido" style="width:200px" value="{{$anuncio->nuevo }}" required>
+                        <option value="0">No</option>
+                        <option value="1">Si</option>
+                </select>
             </label>
-            <input id="nuevo" class="form-control" name="nuevo" value="{{$anuncio->nuevo }}" />
+            
         </div>
     <table>
         <button type="submit" name="editanuncio" class="btn btn-success">
