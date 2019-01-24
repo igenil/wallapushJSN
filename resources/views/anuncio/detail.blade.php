@@ -21,8 +21,16 @@
                 <td>{{$anuncio->producto}}</td>
                 <td>{{$anuncio->categoria->nombre}}</td>
                 <td>{{$anuncio->precio}}</td>
-                <td>{{$anuncio->estado}}</td>
-                <td>{{$anuncio->vendido}}</td>
+                @if($anuncio->nuevo==False)
+                    <td>Nuevo</td>
+                @else
+                    <td>Seminuevo</td>
+                @endif
+                @if($anuncio->vendido==False)
+                    <td>No</td>
+                @else
+                    <td>Si</td>
+                @endif
                 <td>{{$anuncio->descripcion}}</td>
                 <td style="width:1%;">
                     <a href="editanuncio/{{$anuncio->id}}">
