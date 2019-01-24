@@ -38,7 +38,7 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-
+//borrar este comentario
     protected function credentials(Request $request)
     {
         $request['actived'] = TRUE;
