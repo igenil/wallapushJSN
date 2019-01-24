@@ -9,7 +9,7 @@ class Anuncio extends Model
 {
     protected $table ='anuncios';
     protected $fillable = [
-        'id', 'producto', 'id_categoria', 'precio', 'estado', 'vendido', 'descripcion', 'id_vendedor', 'nuevo', 'img'
+        'id', 'producto', 'id_categoria', 'precio', 'vendido', 'descripcion', 'id_vendedor', 'nuevo'
         ];
 
     public function categoria()

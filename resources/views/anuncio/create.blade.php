@@ -39,24 +39,18 @@
                     <input id="precio" class="form-control" name="precio" style="width:200px" value="{{ old('precio') }}" />
                 </div>
                 <div class="form-group">
-                    <label for="estado">Estado</label>
-                    <select class="form-control" name="estado" style="width:200px" required>
-                    <option></option>
-                    <option value="nuevo">Nuevo</option>
-                    <option value="seminuevo">Seminuevo</option>
+                    <label for="vendido">Vendido</label>
+                    <select class="form-control" name="vendido" style="width:200px" required>
+                        <option value="0">No</option>
+                        <option value="1">Si</option>
                     </select>
                 </div>
                 <div class="form-group">
-                        <label for="vendido" class="col-md-12 control-label">
-                            {{ __("Vendido") }}
-                        </label>
-                        <input id="vendido" class="form-control" name="vendido" style="width:200px" value="{{ old('vendido') }}" />
-                </div>
-                <div class="form-group">
-                        <label for="nuevo" class="col-md-12 control-label">
-                            {{ __("Nuevo") }}
-                        </label>
-                        <input id="nuevo" class="form-control" name="nuevo" style="width:200px" value="{{ old('nuevo') }}" />
+                    <label for="nuevo">Estado</label>
+                    <select class="form-control" name="nuevo" style="width:200px" required>
+                        <option value="0">Nuevo</option>
+                        <option value="1">Seminuevo</option>
+                    </select>
                 </div>
                 <div class="form-group">
                         <label for="descripcion" class="col-md-12 control-label">
@@ -64,13 +58,6 @@
                         </label>
                         <input id="descripcion" class="form-control" name="descripcion" style="width:200px" value="{{ old('descripcion') }}" />
                 </div>
-                <div class="form-group">
-                        <label for="img" class="col-md-12 control-label">
-                            {{ __("Imagen") }}
-                        </label>
-                        <input id="img" class="form-control" name="img" style="width:200px"/>
-                </div>
-
                 <button type="submit" name="addanuncio" class="btn btn-success">
                     {{ __("Añadir") }}
                 </button>

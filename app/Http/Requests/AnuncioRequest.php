@@ -27,7 +27,7 @@ class AnuncioRequest extends FormRequest
             'producto'=> 'required',
             'id_categoria'=>'required',
             'precio' => 'min:1',
-            'estado' => 'required',
+            'nuevo' => 'required',
             'descripcion' => 'required',
             
         ];
