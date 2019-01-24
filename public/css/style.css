@@ -1,3 +1,11 @@
 .grid-container {
     display: grid;grid-template-columns: auto auto auto auto;grid-gap: 10px;padding: 10px;
 }
+
+.card2{
+    width:250px;
+  }
+
+  .card2:hover{
+    background-color:#d0efa0;
+  }
