@@ -43,7 +43,7 @@ class LoginController extends Controller
     {
         $request['actived'] = TRUE;
         $request['email_verified_at'] != NULL;
-        return $request->only($this->username(), 'password', 'actived');
+        return $request->only($this->username(), 'password', 'actived', 'email_verified_at');
         
     }
 }
