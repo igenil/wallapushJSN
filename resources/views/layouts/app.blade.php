@@ -34,7 +34,7 @@
                     </a> 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/listCategorias') }}">
+                    <a class="nav-link" href="{{ url('/listCategoriasusuarios') }}">
                         Categorias
                     </a> 
                 </li>

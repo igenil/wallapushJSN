@@ -13,6 +13,12 @@ class CategoriaController extends Controller
         return view("categorias.detail",compact('categorias'));
     }
 
+    public function indexusuarios()
+    {
+        $categorias = Categoria::All(); 
+        return view("categorias.detailUser",compact('categorias'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

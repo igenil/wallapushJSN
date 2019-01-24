@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
+
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
 //Mostrar usuarios
@@ -40,6 +41,8 @@ Route::put('/edituser/edituser2/{id}', 'UserController@restar_saldo');
 
 //Mostrar categorias
 Route::get('/listCategorias', 'CategoriaController@index');
+//Mostrar categorias para usuarios
+Route::get('/listCategoriasusuarios', 'CategoriaController@indexusuarios');
 //Eliminar categorias
 Route::delete('/deleteCategoria/{id}', 'CategoriaController@destroy');
 //Mostrar formulario categorias
