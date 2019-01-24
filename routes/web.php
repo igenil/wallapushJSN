@@ -49,7 +49,7 @@ Route::post('/addCategoriaForm', 'CategoriaController@store');
 //Mostrar formulario editar categorias
 Route::get('/editCategoria/{id}', 'CategoriaController@edit');
 //Editar categorias
-Route::post('/editCategoria/editCategoriaForm/{id}', 'CategoriaController@update');
+Route::post('/editCategoriaForm/{id}', 'CategoriaController@update');
 
 Route::get('listAnuncios', 'AnuncioController@index');
 Route::get('addanuncio', 'AnuncioController@indexaddanuncio');

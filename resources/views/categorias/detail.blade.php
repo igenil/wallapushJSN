@@ -25,7 +25,7 @@
                 <tr>
                     <td>{{$categoria->nombre}}</td>
                     <td>
-                        <a class="btn btn-info" data-toggle="modal" href="editCategoria/{{$categoria->id}}">
+                        <a class="btn btn-info" style="color:#fff;" data-toggle="modal" data-target="#exampleModal2">
                             Editar 
                         </a>
                     </td>
@@ -55,26 +55,64 @@
         </div>
         <div class="modal-body">
             <center>
-              <form method="POST" action="{{url('addCategoriaForm/')}}">
-                {{ csrf_field() }}
-                <table>
-                    <tr>
-                        <td>
-                            <p>Nombre:</p>
-                            <input name="nombre"  type="text" class="form-control" >
-                            <br>
-                        </td>
-                    </tr>
-                </table>
-                <br>
-                <br>
-                <button type="submit" name="addcategoria" class="btn btn-success">{{ __("Añadir") }}</button> &nbsp;           
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-            </form>
+                <div role="alert">
+                    <form method="POST" action="{{url('addCategoriaForm/')}}">
+                        {{ csrf_field() }}
+                        <table>
+                            <tr>
+                                <td>
+                                    <p>Nombre:</p>
+                                    <input name="nombre"  type="text" class="form-control" >
+                                    <br>
+                                </td>
+                            </tr>
+                        </table>
+                        <br>
+                        <br>
+                        <button type="submit" name="addcategoria" class="btn btn-success">{{ __("Añadir") }}</button> &nbsp;           
+                        <a href="{{ url('listCategorias/') }}" class="btn btn-danger">Cancelar</a> &nbsp;
+                    </form>
+                    <br>  
+                </div>
             </center>
         </div>
       </div>
     </div>
   </div>
   
+  <div class="modal fade" id="exampleModal2"  role="dialog" aria-labelledby="exampleModal2Label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModal2Label">Editar una categoria</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <center>
+                <div role="alert">
+                    <form method="POST" action="editCategoriaForm/{{$categoria->id}}">
+                        {{ csrf_field() }}
+                        <table>
+                            <tr>
+                                <td>
+                                    <p>Nombre:</p>
+                                    <input name="nombre" value="{{$categoria->nombre}}"  type="text" class="form-control" >
+                                    <br>
+                                </td>
+                            </tr>
+                        </table>
+                        <br>
+                        <br>
+                        <button type="submit" name="addcategoria" class="btn btn-success">{{ __("Editar") }}</button> &nbsp;           
+                        <a href="{{ url('listCategorias/') }}" class="btn btn-danger">Cancelar</a> &nbsp;
+                </form>
+                    <br>  
+                </div>
+            </center>
+        </div>
+      </div>
+    </div>
+  </div>
 @endsection
