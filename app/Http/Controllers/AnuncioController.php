@@ -15,7 +15,7 @@ class AnuncioController extends Controller
 {
     public function index()
     {
-        $anuncios = Anuncio::all();
+        $anuncios = Anuncio::with('categoria')->get();
 
         return view("anuncio.detail",compact('anuncios'));
     }

@@ -14,7 +14,7 @@ class Anuncio extends Model
 
     public function categoria()
     {
-        return $this->hasOne(Categoria::class);
+        return $this->hasOne(Categoria::class, 'id_categoria');
     }
 
     public function usuario()
