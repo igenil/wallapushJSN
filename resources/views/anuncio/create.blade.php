@@ -62,7 +62,7 @@
                     {{ __("Añadir") }}
                 </button>
                 &nbsp;&nbsp;&nbsp;
-                <a href="{{ url('/listAnuncios') }}">  
+                <a href="{{ url('/anuncios') }}">  
                 <button type="button" class="btn btn-danger">Cancel</button>
                 </a>
             </form>
