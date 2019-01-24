@@ -79,7 +79,7 @@
       </div>
     </div>
   </div>
-  
+  @if(!$categorias->isEmpty())
   <div class="modal fade" id="exampleModal2"  role="dialog" aria-labelledby="exampleModal2Label" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -107,7 +107,7 @@
                         <br>
                         <button type="submit" name="addcategoria" class="btn btn-success">{{ __("Editar") }}</button> &nbsp;           
                         <a href="{{ url('listCategorias/') }}" class="btn btn-danger">Cancelar</a> &nbsp;
-                </form>
+                    </form>
                     <br>  
                 </div>
             </center>
@@ -115,4 +115,5 @@
       </div>
     </div>
   </div>
+  @endif
 @endsection
