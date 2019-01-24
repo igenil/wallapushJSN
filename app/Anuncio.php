@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Categoria;
+use App\User;
 
 class Anuncio extends Model
 {
@@ -19,6 +20,6 @@ class Anuncio extends Model
 
     public function usuario()
     {
-        return $this->belongsTo(Anuncio::class, 'id_vendedor');
+        return $this->belongsTo(User::class, 'id_vendedor');
     }
 }
