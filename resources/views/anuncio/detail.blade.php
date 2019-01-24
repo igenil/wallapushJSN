@@ -19,7 +19,7 @@
             @foreach($anuncios as $anuncio)
             <tr>
                 <td>{{$anuncio->producto}}</td>
-                <td>{{$anuncio->id_categoria}}</td>
+                <td>{{$anuncio->categoria->nombre}}</td>
                 <td>{{$anuncio->precio}}</td>
                 <td>{{$anuncio->estado}}</td>
                 <td>{{$anuncio->vendido}}</td>
