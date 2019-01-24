@@ -9,13 +9,15 @@
     <div style="text-align: center; ">
         <br>
             <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" > Añadir </button>
+        <br/>
         <br>
-        <br>
-        <table class="table">
+        <center>
+        <table style="width:50%; float:center;" class="table">
             <thead>
             <tr>
                 <td><strong>NOMBRE</strong></td>
                 <td><strong>ACCIÓN</strong></td>
+                <td></td>
             </tr>
             </thead>
             <tbody>
@@ -38,6 +40,7 @@
                 @endforeach
             </tbody>
         </table>
+        </center>
     </div>
 </div>
 
@@ -45,22 +48,30 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Listado 2: Peticiones por ciclo.</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Añadir una categoria</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-              <div class="form-group">
-                  <label for="exampleFormControlSelect1">Grados</label>
-                  <select class="form-control" id="exampleFormControlSelect1" name="id_grade">
-                    <option value="" selected>Selecciona un grado...</option>
-                  </select>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-primary">Filtrar</button>
-              </div>
+            <center>
+              <form method="POST" action="{{url('addCategoriaForm/')}}">
+                {{ csrf_field() }}
+                <table>
+                    <tr>
+                        <td>
+                            <p>Nombre:</p>
+                            <input name="nombre"  type="text" class="form-control" >
+                            <br>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <br>
+                <button type="submit" name="addcategoria" class="btn btn-success">{{ __("Añadir") }}</button> &nbsp;           
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            </form>
+            </center>
         </div>
       </div>
     </div>
