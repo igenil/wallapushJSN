@@ -1,42 +1,52 @@
 @extends('layouts.app')
 @section('content')
 <div style="width: 80%; text-align: left; margin: 0 auto;">
+    <br>
+    <br>
     <form method="POST" action="{{url('editanuncio')}}/{{$anuncio->id}}">
         {{ csrf_field() }}
         {{ method_field ('PUT')}}
         <div class="form-group">
-            <label for="producto" class="col-md-12 control-label">
+            <label for="producto" class="col-md-8 control-label">
                 {{ __("Producto") }}
             </label>
-            <input id="producto" class="form-control" name="producto" value="{{ $anuncio->producto }}" />
+            <input id="producto" class="form-control col-md-3 " name="producto" value="{{ $anuncio->producto }}" />
         </div>
         <div class="form-group">
-            <label for="categoria" class="col-md-12 control-label">
+            <label for="categoria" class="col-md-8 control-label">
                 {{ __("Categoria") }}
             </label>
-            <input id="categoria" class="form-control" name="categoria" value="{{$anuncio->categoria->nombre }}" />
+            <input id="categoria" class="form-control  col-md-3" name="categoria" value="{{$anuncio->categoria->nombre }}" />
         </div>
         <div class="form-group">
-            <label for="precio" class="col-md-12 control-label">
+            <label for="precio" class="col-md-8 control-label">
                 {{ __("Precio") }}
             </label>
-            <input id="precio" class="form-control" name="precio" value="{{$anuncio->precio }}" />
+            <input id="precio" class="form-control  col-md-3" name="precio" value="{{$anuncio->precio }}" />
         </div>
+
         <div class="form-group">
-            <label for="estado" class="col-md-12 control-label">
-                {{ __("Estado") }}
-            </label>
-            <input id="estado" class="form-control" name="estado" value="{{$anuncio->estado }}" />
+            <label for="estado">Estado</label>
+            <select class="form-control" name="nuevo" style="width:200px" required>
+                @if ($anuncio->nuevo==0)
+                <option value="0" selected>...</option>
+                    <option value="0" selected>Nuevo</option>
+                    <option value="1">Seminuevo</option>
+                @else
+                    <option value="0" >Nuevo</option>
+                    <option value="1" selected>Seminuevo</option>
+                @endif
+            </select>
         </div>
+
         <div class="form-group">
-            <label for="vendido" class="col-md-12 control-label">
+            <label for="vendido" >
                     {{ __("Vendido") }}
-                <select class="form-control" name="vendido" style="width:200px" value="{{$anuncio->nuevo }}" required>
+                <select class="form-control " name="vendido" style="width:200px" value="{{$anuncio->nuevo }}" required>
                         <option value="0">No</option>
                         <option value="1">Si</option>
                 </select>
-            </label>
-            
+            </label> 
         </div>
     <table>
         <button type="submit" name="editanuncio" class="btn btn-success">
@@ -44,11 +54,10 @@
         </button>   
     </form>
     &nbsp;&nbsp;&nbsp;
-    <a href="{{ url('/anuncio') }}">  
+    <a href="{{ url('/listAnuncios') }}">  
         <button type="button" class="btn btn-danger">Cancel</button>
     </a>
     </table>
 </div>
-</div>
-</div>
+
 @endsection
