@@ -75,4 +75,11 @@ class AnuncioController extends Controller
         $anuncios->delete();
         return redirect('/listAnuncios')->with('success', "Anuncio borrado correctamente !");
     }
+
+    public function show_anuncio($id){
+
+        $anuncio = Anuncio::find($id);
+        return view("anuncio.show_anuncio", compact('anuncio'));
+
+    }
 }

@@ -57,6 +57,8 @@ Route::post('/editCategoriaForm/{id}', 'CategoriaController@update');
 
 //Mostrar anuncios para usuarios
 Route::get('anuncios', 'AnuncioController@index_usuario');
+//Mostrar anuncios para usuarios para comprar el producto
+Route::get('showAnuncio/{id}', 'AnuncioController@show_anuncio');
 //
 Route::get('listAnuncios', 'AnuncioController@index');
 Route::get('addanuncio', 'AnuncioController@indexaddanuncio');
