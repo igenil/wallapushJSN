@@ -317,7 +317,6 @@ input[type=text]:placeholder {
                 </div>
             </form>
         </center>
-
       
         </div>
       </div>

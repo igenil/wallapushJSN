@@ -40,6 +40,11 @@ class AnuncioController extends Controller
         return view("anuncio.edit", compact('anuncio'));
     }
 
+    public function indexAnuncioCategoria($id){
+        $anuncios =Anuncio::where('id_categoria',$id)->get();
+        return view("anuncio.anunciosCategoria", compact('anuncios'));
+    }
+
     public function store(AnuncioRequest $request)
     { 
         $user=Auth::id();

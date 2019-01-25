@@ -11,6 +11,7 @@
             <div class="container">
                 <div class="grid-container">
                     @foreach($categorias as $categoria)
+                        <a style="text-decoration:none; color:black" href="anunciosCategoria/{{$categoria->id}}">
                         <div class="row">
                             <div class="card card2">
                                 <div class="card-body">
@@ -18,6 +19,7 @@
                                 </div>
                             </div>
                         </div>
+                    </a>
                     @endforeach
                 </div>
             </div>
