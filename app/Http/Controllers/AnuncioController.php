@@ -48,7 +48,6 @@ class AnuncioController extends Controller
             'id_categoria' => $request->get('id_categoria'),
             'precio' => $request->get('precio'),
             'nuevo' => $request->get('nuevo'),
-            'vendido' => $request->get('vendido'),
             'descripcion' => $request->get('descripcion'),
             'id_vendedor' => $user,
         ));
