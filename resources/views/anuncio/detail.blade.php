@@ -2,6 +2,9 @@
 @section('content')
 <br>
 <br>
+@if(\Session::has('success'))
+    <div class="alert-danger"> {!! \Session::get('success') !!} </div>
+@endif
 <table class="table table-striped table-hover" style="width: 80%; text-align: left; margin: 0 auto;">
         <thead style="background-color: #b9cced;">
             <tr>
