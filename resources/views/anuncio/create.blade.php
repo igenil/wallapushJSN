@@ -39,13 +39,6 @@
                     <input id="precio" class="form-control" name="precio" style="width:200px" value="{{ old('precio') }}" />
                 </div>
                 <div class="form-group">
-                    <label for="vendido">Vendido</label>
-                    <select class="form-control" name="vendido" style="width:200px" required>
-                        <option value="0">No</option>
-                        <option value="1">Si</option>
-                    </select>
-                </div>
-                <div class="form-group">
                     <label for="nuevo">Estado</label>
                     <select class="form-control" name="nuevo" style="width:200px" required>
                         <option value="0">Nuevo</option>

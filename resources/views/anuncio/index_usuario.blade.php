@@ -21,6 +21,8 @@
                 </div>
             </div>
         @endforeach
+        {{$anuncios->links()}}
+        <br>
     </center>
 </div>
 @endsection

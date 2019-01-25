@@ -21,26 +21,26 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Wallapush</a>
+            <img src="{{asset('image/wallapop.png')}}" width="45cm" height="45cm"/>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
           
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <li class="nav-item px-lg-3">
                     <a class="nav-link" href="{{ url('/anuncios') }}">
-                        Anuncios
+                        <b>ANUNCIOS</b>
                     </a> 
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/listCategoriasusuarios') }}">
-                        Categorias
+                        <b>CATEGORIAS</b>
                     </a> 
                 </li>
                 <li class="nav-item px-lg-5">
                     <a class="nav-link" href="{{ url('/addanuncio') }}">
-                        <button type="button" class="btn btn-sm btn-outline-success"><i class="fas fa-plus-circle"></i>  Subir Producto</button>                       
+                        <button type="button" class="btn btn-sm btn-outline-success"><i class="fas fa-plus-circle"></i>  SUBIR PRODUCTO</button>                       
                     </a>
                 </li>
               </ul>
