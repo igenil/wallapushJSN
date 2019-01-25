@@ -3,8 +3,9 @@
 <br>
 <br>
 @if(\Session::has('success'))
-    <div class="alert-danger"> {!! \Session::get('success') !!} </div>
-@endif
+    <center><div class="alert-danger" style="width:30%;"> <center>{!! \Session::get('success') !!} </center></div></center>
+    <br>
+    @endif
 <table class="table table-striped table-hover" style="width: 80%; text-align: left; margin: 0 auto;">
         <thead style="background-color: #b9cced;">
             <tr>
