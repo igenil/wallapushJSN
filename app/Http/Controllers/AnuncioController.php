@@ -22,7 +22,7 @@ class AnuncioController extends Controller
 
     public function index_usuario(){
 
-        $anuncios = Anuncio::with('categoria', 'usuario')->get();
+        $anuncios = Anuncio::with('categoria', 'usuario')->paginate(3);
 
         return view('anuncio.index_usuario', compact('anuncios', 'categoria', 'usuario'));
     }
