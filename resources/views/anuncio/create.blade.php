@@ -48,10 +48,10 @@
                     </select>
                 </div>
                 <div class="form-group">
-                        <label for="descripcion" class="col-md-12 control-label">
+                        <label for="descripcion" class="col-md-12 control-label" >
                             {{ __("Descripcion") }}
                         </label>
-                        <input id="descripcion" class="form-control" name="descripcion" style="width:200px" value="{{ old('descripcion') }}" />
+                        <input id="descripcion" class="form-control" name="descripcion" style="width:400px; height:300px" value="{{ old('descripcion') }}" />
                 </div>
                 <button type="submit" name="addanuncio" class="btn btn-success">
                     {{ __("Añadir") }}

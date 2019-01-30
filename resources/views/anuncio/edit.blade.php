@@ -12,10 +12,19 @@
             <input id="producto" class="form-control col-md-3 " name="producto" value="{{ $anuncio->producto }}" />
         </div>
         <div class="form-group">
-            <label for="categoria" class="col-md-8 control-label">
-                {{ __("Categoria") }}
-            </label>
-            <input id="categoria" class="form-control  col-md-3" name="id_categoria" value="{{$anuncio->categoria->nombre }}" />
+                <label for="descripcion" class="col-md-12 control-label">
+                    {{ __("Descripcion") }}
+                </label>
+                <input id="descripcion" class="form-control" name="descripcion" style="width:400px; height:300px" value="{{ $anuncio->descripcion }}" />
+        </div>
+        <div class="form-group">
+                <label for="id_categoria">Categoria</label>
+                <select class="form-control" name="id_categoria" style="width:200px"  required>
+                    @foreach($categorias as $categoria)
+                        <option value = "{{$categoria->id}}">{{$categoria->nombre}}</option>
+                        {{-- <option value="{{$categoria->id}}">{{$categoria->nombre}}</option> --}}
+                    @endforeach
+                </select>
         </div>
         <div class="form-group">
             <label for="precio" class="col-md-8 control-label">

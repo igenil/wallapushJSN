@@ -37,7 +37,8 @@ class AnuncioController extends Controller
 
     public function indexeditanuncio($id){
         $anuncio = Anuncio::find($id);
-        return view("anuncio.edit", compact('anuncio'));
+        $categorias = Categoria::all();
+        return view("anuncio.edit", compact('anuncio','categorias'));
     }
 
     public function indexAnuncioCategoria($id){
@@ -58,18 +59,20 @@ class AnuncioController extends Controller
         ));
 
         $anuncio->save();
-        return redirect('/listAnuncios');
+        return redirect('/anuncios');
     }
 
     public function update(Request $request, $id)
     {
+        $user=Auth::id();
         $anuncio = Anuncio::find($id);
         $anuncio -> producto = $request -> producto;
         $anuncio -> id_categoria = $request -> id_categoria;
         $anuncio -> precio = $request -> precio;
+        $anuncio -> nuevo = $request -> nuevo;
         $anuncio -> vendido = $request -> vendido;
         $anuncio -> descripcion = $request -> descripcion;
-        $anuncio -> id_vendedor = $request -> id_vendedor;
+        $anuncio -> id_vendedor = $user;
         $anuncio -> save();
         return redirect('/listAnuncios')->with('message', ['success', __("Anuncio edited successfully")]);
     }
