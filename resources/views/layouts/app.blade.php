@@ -62,11 +62,14 @@
                                     <a class="dropdown-item" href="{{ url('/listusers') }}">Usuarios</a>
                                     <a class="dropdown-item" href="{{ url('/listAnuncios') }}">Anuncios</a>
                                     <a class="dropdown-item" href="{{ url('/listCategorias') }}">Categorias</a>
+                                    <a class="dropdown-item" href="{{ url('/ranking') }}">Ranking</a>
                                 @endif
+                              
+                                <a class="dropdown-item" href='compras/{{ Auth::user()->id }}'>Compras</a>
+                                <a class="dropdown-item" href='ventas/{{ Auth::user()->id }}'>Ventas</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    Cerrar Sesión
+                                        Cerrar Sesión
                                 </a>
-
                                 <form class="dropdown-item" id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
