@@ -5,6 +5,10 @@
 <br>
 <div class="container">
     <center>
+        @if(\Session::has('success'))
+        <center><div class="alert-danger" style="width:30%;"> <center>{!! \Session::get('success') !!} </center></div></center>
+        <br>
+        @endif
         <div class="container">
             <div class="grid-container">
             @foreach($anuncios as $anuncio)

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Anuncio;
 use App\Categoria;
 use App\User;
+use App\Transaccion;
 
 use App\Http\Requests\AnuncioRequest;
 
@@ -22,7 +23,7 @@ class AnuncioController extends Controller
 
     public function index_usuario(){
 
-        $anuncios = Anuncio::with('categoria', 'usuario')->paginate(3);
+        $anuncios = Anuncio::with('categoria', 'usuario')->where('vendido', 0)->paginate(6);
 
         return view('anuncio.index_usuario', compact('anuncios', 'categoria', 'usuario'));
     }
@@ -102,6 +103,19 @@ class AnuncioController extends Controller
             $comprador->saldo -= $anuncio->precio;
             $vendedor->saldo += $anuncio->precio;
             $anuncio -> vendido = 1;
+            $comprador -> save();
+            $vendedor -> save();
+            $anuncio -> save();
+            $anuncios = Anuncio::with('categoria')->get();
+
+            $transaccion = new Transaccion(array(
+                'id_anuncio' => $id_anuncio,
+                'id_comprador' => $id_comprador,
+            ));
+    
+            $transaccion->save();
+
+            return redirect('/anuncios')->with('success',"Gracias por tu compra. No te olvides de valorarla");
         }
 
        
