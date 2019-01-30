@@ -41,9 +41,9 @@ class LoginController extends Controller
 
     protected function credentials(Request $request)
     {
-        $request['actived'] = TRUE;
-        
-        return $request->only($this->username(), 'password', 'actived');
+        $request['actived'] = true;
+        $request['email_verified_at'] != NULL;
+        return $request->only($this->username(), 'password', 'actived','email_verified_at');
         
     }
 }
