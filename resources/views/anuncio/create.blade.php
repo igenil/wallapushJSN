@@ -14,7 +14,9 @@
             </ul>
         </div>
         @endif
+        
         <div style="width: 80%; text-align: left; margin: 0 auto;">
+            <center>
             <form method="POST" action="{{url('/addanuncio1')}}">
                 {{ csrf_field() }}
                 <div class="form-group">
@@ -59,7 +61,9 @@
                 <button type="button" class="btn btn-danger">Cancel</button>
                 </a>
             </form>
+        </center>
         </div>
+    
     </div>
     <br><br>
 </div>
