@@ -61,7 +61,7 @@ class AnuncioController extends Controller
         return redirect('/listAnuncios');
     }
 
-    public function update(AnuncioRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $anuncio = Anuncio::find($id);
         $anuncio -> producto = $request -> producto;

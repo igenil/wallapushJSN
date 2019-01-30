@@ -3,9 +3,8 @@
 <div style="width: 80%; text-align: left; margin: 0 auto;">
     <br>
     <br>
-    <form method="POST" action="{{url('editanuncio')}}/{{$anuncio->id}}">
+<form method="POST" action="{{ route('editarAnuncio', ['id'=> $anuncio->id]) }}">
         {{ csrf_field() }}
-        {{ method_field ('PUT')}}
         <div class="form-group">
             <label for="producto" class="col-md-8 control-label">
                 {{ __("Producto") }}
@@ -16,7 +15,7 @@
             <label for="categoria" class="col-md-8 control-label">
                 {{ __("Categoria") }}
             </label>
-            <input id="categoria" class="form-control  col-md-3" name="categoria" value="{{$anuncio->categoria->nombre }}" />
+            <input id="categoria" class="form-control  col-md-3" name="id_categoria" value="{{$anuncio->categoria->nombre }}" />
         </div>
         <div class="form-group">
             <label for="precio" class="col-md-8 control-label">
