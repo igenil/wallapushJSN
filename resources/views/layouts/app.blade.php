@@ -44,6 +44,9 @@
                     </a>
                 </li>
               </ul>
+              <li class="navbar-nav px-lg-4">
+                <span style="color: #b3b6bc;">Saldo: {{ Auth::user()->saldo }} €</span>
+              </li>
               <ul class="navbar-nav">
                 @guest
                     <a class="nav-link" href="{{ route('login') }}">Login</a></li>
@@ -53,7 +56,6 @@
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
-
                         <ul class="dropdown-menu">
                             <li>
                                 @if (Auth::user()->role == 'admin')
