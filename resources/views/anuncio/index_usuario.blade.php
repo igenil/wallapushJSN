@@ -25,10 +25,11 @@
                     </div>
                 </div>
             @endforeach
-            {{$anuncios->links()}}
+            
             <br>
             </div>
         </div>
+        {{$anuncios->links()}}
     </center>
 </div>
 @endsection
