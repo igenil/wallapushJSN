@@ -90,4 +90,20 @@ class AnuncioController extends Controller
         return view("anuncio.show_anuncio", compact('anuncio'));
 
     }
+    
+    public function comprar($id_anuncio, $id_comprador, $id_vendedor){
+        $anuncio = Anuncio::find($id_anuncio);
+        $comprador = User::find($id_comprador);
+        $vendedor = User::find($id_vendedor);
+
+        if ($anuncio->precio > $comprador->saldo) {
+            return back()->with('success',"Lo sentimos, no tienes suficiente dinero...");
+        }else{
+            $comprador->saldo -= $anuncio->precio;
+            $vendedor->saldo += $anuncio->precio;
+            $anuncio -> vendido = 1;
+        }
+
+       
+    }
 }

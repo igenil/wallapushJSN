@@ -61,7 +61,9 @@ Route::get('anuncios', 'AnuncioController@index_usuario');
 Route::get('anunciosCategoria/{id}', 'AnuncioController@indexAnuncioCategoria');
 //Mostrar anuncios para usuarios para comprar el producto
 Route::get('showAnuncio/{id}', 'AnuncioController@show_anuncio');
-//
+//Comprar
+Route::get('comprar/{id_anuncio}/{id_comprador}/{id_vendedor}', 'AnuncioController@comprar')->name('comprar');
+
 Route::get('listAnuncios', 'AnuncioController@index');
 Route::get('addanuncio', 'AnuncioController@indexaddanuncio');
 Route::get('editanuncio/{id}', 'AnuncioController@indexeditanuncio');
