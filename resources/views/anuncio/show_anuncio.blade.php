@@ -5,8 +5,8 @@
     <center>
         <br>
         @if(\Session::has('success'))
-        <center><div class="alert alert-danger" style="width:30%;"> <center>{!! \Session::get('success') !!} </center></div></center>
-        <br>
+            <center><div class="alert alert-danger" style="width:30%;"> <center>{!! \Session::get('success') !!} </center></div></center>
+            <br>
         @endif
         <br>
         <div class="card text-center" style="width: 25cm;">
