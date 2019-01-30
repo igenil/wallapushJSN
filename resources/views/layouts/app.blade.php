@@ -45,7 +45,9 @@
                 </li>
               </ul>
               <li class="navbar-nav px-lg-4">
-                <span style="color: #b3b6bc;">Saldo: {{ Auth::user()->saldo }} €</span>
+                @if (Auth::check())
+                    <span style="color: #b3b6bc;">Saldo: {{ Auth::user()->saldo }} €</span>
+                @endif
               </li>
               <ul class="navbar-nav">
                 @guest

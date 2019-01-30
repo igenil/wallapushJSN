@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Anuncio;
+use App\Categorias;
+use App\Transaccion;
+
 
 class ComprasController extends Controller
 {
@@ -13,7 +18,9 @@ class ComprasController extends Controller
      */
     public function index()
     {
-        
+        $user=Auth::id();
+        $trans = Transaccion::where('id_comprador', $user)->with('anuncio', 'usuario')->paginate(3);
+        return view('compras.index', compact('trans', 'usuario', 'anuncio', 'user'));
     }
 
     /**
