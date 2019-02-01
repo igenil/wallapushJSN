@@ -39,14 +39,16 @@ class ComprasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        $trans = new Transaccion(array(
-            'valoracion' => $request->get('valoracion'),
-        ));
+        $id_anuncio=Transaccion::with('id_anuncio')->get();
+        $id_comprador=Transaccion::with('id_comprador')->get();
+        $trans = Transaccion::find($id);
+        $trans -> id_anuncio = $id_anuncio;
+        $trans -> id_comprador = $id_comprador;
+        $trans -> valoracion = $request -> valoracion;
 
         $trans->save();
-
         return redirect('/compras');
     }
 

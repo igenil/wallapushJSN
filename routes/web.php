@@ -86,7 +86,7 @@ Route::get('categoriafecha/{id_categoria}/{fecha1}/{fecha2}', 'TransaccionContro
 
 
 //Añadir Valoracion
-Route::post('/addValoracion', 'ComprasController@store');
+Route::post('/addValoracion/{id}', 'ComprasController@store');
 
 
 
