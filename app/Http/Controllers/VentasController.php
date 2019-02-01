@@ -18,8 +18,8 @@ class VentasController extends Controller
     public function index()
     {
         $user=Auth::id();
-        $trans = Transaccion::where('id_anuncio', $user)->with('anuncio')->get();
-        return view('ventas.index', compact('trans', 'anuncio', 'user'));
+        $ventas = Anuncio::where('id_vendedor', $user)->where('vendido', 1)->get();
+        return view('ventas.index', compact('ventas', 'anuncio', 'user'));
     }
 
     /**
