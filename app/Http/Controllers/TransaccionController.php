@@ -22,7 +22,7 @@ class TransaccionController extends Controller
             array_push($usuarios, ['name' => $user->name, 'dinero' => $dinero]);
             $dinero = 0;  
         }
-        // dd($usuarios);
+        $usuarios = collect($usuarios)->sortBy('dinero')->reverse()->toArray();
         return view("transacciones.detail",compact('usuarios'));
     }
 
@@ -35,11 +35,18 @@ class TransaccionController extends Controller
             $ventas = Anuncio::where('id_vendedor', $user->id)->where('vendido', 1)->get();
             foreach($ventas as $venta){
                 $trans = Transaccion::where('id_anuncio',$venta->id)->get();
-                $valoracion += $trans->valoracion;
+                
+                if ($trans[0]->valoracion==null){
+                    $aux=0;
+                } else{
+                    $aux=$trans[0]->valoracion;
+                }
+                $valoracion += $aux;
             }
             array_push($usuarios, ['name' => $user->name, 'valoracion' => $valoracion]);
             $valoracion = 0;  
         }
+        $usuarios = collect($usuarios)->sortBy('valoracion')->reverse()->toArray();
         return view("transacciones.detail2",compact('usuarios'));
     }
 
