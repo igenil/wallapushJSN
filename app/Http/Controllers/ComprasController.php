@@ -76,7 +76,6 @@ class ComprasController extends Controller
     public function update(Request $request, $id)
     {
         $trans=Transaccion::find($id);
-
         $trans -> id_anuncio = $trans->id_anuncio;
         $trans -> id_comprador = $trans->id_comprador;
         $trans -> valoracion = $request -> valoracion;
