@@ -8,24 +8,23 @@
     
     <div style="text-align: center; ">
         <br>
-            <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" > Añadir </button>
-        <br/>
         <br>
         <center>
         <table style="width:50%; float:center;" class="table">
             <thead>
             <tr>
-                <td><strong>ANUNCIO</strong></td>
-                <td><strong>COMPRADOR</strong></td>
+                <td><strong>VENDEDOR</strong></td>
+                <td><strong>TOTAL</strong></td>
                 <td></td>
             </tr>
             </thead>
             <tbody>
-                @foreach($ventas as $venta)
-                <tr>
-                    <td>{{$venta->anuncio->producto}}</td>
-                    <td>{{$venta->usuario->name}}</td>              
-                </tr>
+                @foreach($usuarios as $usuario)
+                    <tr>
+                        @foreach($usuario as $cont)                          
+                            <td>{{$cont}}</td>              
+                        @endforeach
+                    </tr>
                 @endforeach
             </tbody>
         </table>
