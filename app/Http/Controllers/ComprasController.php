@@ -39,17 +39,9 @@ class ComprasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
-        $id_anuncio=Transaccion::with('id_anuncio')->get();
-        $id_comprador=Transaccion::with('id_comprador')->get();
-        $trans = Transaccion::find($id);
-        $trans -> id_anuncio = $id_anuncio;
-        $trans -> id_comprador = $id_comprador;
-        $trans -> valoracion = $request -> valoracion;
-
-        $trans->save();
-        return redirect('/compras');
+        //
     }
 
     /**
@@ -83,7 +75,17 @@ class ComprasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $trans=Transaccion::find($id);
+
+        $trans -> id_anuncio = $trans->id_anuncio;
+        $trans -> id_comprador = $trans->id_comprador;
+        $trans -> valoracion = $request -> valoracion;
+        
+        $trans->save();
+
+        $user=Auth::id();
+        $trans = Transaccion::where('id_comprador', $user)->with('anuncio')->get();
+        return view("compras.index", compact('trans'));
     }
 
     /**
