@@ -19,8 +19,8 @@ class ComprasController extends Controller
     public function index()
     {
         $user=Auth::id();
-        $trans = Transaccion::where('id_comprador', $user)->with('anuncio', 'usuario')->get();
-        return view('compras.index', compact('trans', 'usuario', 'anuncio', 'user'));
+        $trans = Transaccion::where('id_comprador', $user)->with('anuncio')->get();
+        return view('compras.index', compact('trans', 'anuncio', 'user'));
     }
 
     /**
@@ -41,7 +41,13 @@ class ComprasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $trans = new Transaccion(array(
+            'valoracion' => $request->get('valoracion'),
+        ));
+
+        $trans->save();
+
+        return redirect('/compras');
     }
 
     /**

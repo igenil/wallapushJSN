@@ -72,9 +72,12 @@ Route::delete('anuncio/{id}', 'AnuncioController@destroy');
 Route::post('editanuncio1/{id}', 'AnuncioController@update')->name("editarAnuncio");
 
 //Route::get('{chocos?}/compras/{id}', 'ComprasController@index');
-Route::get('compras/{id}', 'ComprasController@index');
-Route::get('ventas/{id}', 'VentasController@index');
+Route::get('compras', 'ComprasController@index')->name("compras");
+Route::get('ventas', 'VentasController@index');
 Route::get('ranking', 'TransaccionController@index');
+
+//Añadir Valoracion
+Route::post('/addValoracion', 'ComprasController@store');
 
 
 

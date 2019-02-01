@@ -19,7 +19,6 @@
                 <p class="card-text">{{$anuncio->descripcion}}</p>
                 <div class="dropdown-divider"></div>
                 <a href="{{route('comprar', ['id_anuncio'=> $anuncio->id,'id_comprador'=> Auth::user()->id, 'id_venderdor' => $anuncio->usuario->id])}}" class="btn btn-outline-success"> Comprar</a>
-                <a href="#" class="btn btn-outline-warning"><i class="far fa-star"></i> Valorar</a>
             </div>
             <div class="card-footer text-muted">
                 2 days ago

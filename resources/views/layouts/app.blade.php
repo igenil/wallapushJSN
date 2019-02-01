@@ -67,8 +67,8 @@
                                     <a class="dropdown-item" href="{{ url('/ranking') }}">Ranking</a>
                                 @endif
                               
-                                <a class="dropdown-item" href='compras/{{ Auth::user()->id }}'>Compras</a>
-                                <a class="dropdown-item" href='ventas/{{ Auth::user()->id }}'>Ventas</a>
+                                <a class="dropdown-item" href="{{ route('compras')}}">Compras</a>
+                                <a class="dropdown-item" href=>Ventas</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         Cerrar Sesión
                                 </a>
