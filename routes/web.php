@@ -64,11 +64,17 @@ Route::get('showAnuncio/{id}', 'AnuncioController@show_anuncio');
 //Comprar
 Route::get('comprar/{id_anuncio}/{id_comprador}/{id_vendedor}', 'AnuncioController@comprar')->name('comprar');
 
+//Mostrar anuncios para administrador
 Route::get('listAnuncios', 'AnuncioController@index');
+//Mostrar vista añadir anuncio
 Route::get('addanuncio', 'AnuncioController@indexaddanuncio');
+//Mostrar vista de editar anuncio
 Route::get('editanuncio/{id}', 'AnuncioController@indexeditanuncio');
+//Añadir un anuncio
 Route::post('addanuncio1', 'AnuncioController@store');
+//Eliminar un anuncio
 Route::delete('anuncio/{id}', 'AnuncioController@destroy');
+//Editar un anuncio
 Route::post('editanuncio1/{id}', 'AnuncioController@update')->name("editarAnuncio");
 
 //Route::get('{chocos?}/compras/{id}', 'ComprasController@index');
