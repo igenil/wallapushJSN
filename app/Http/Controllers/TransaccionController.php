@@ -38,9 +38,9 @@ class TransaccionController extends Controller
                 $valoracion += $trans->valoracion;
             }
             array_push($usuarios, ['name' => $user->name, 'valoracion' => $valoracion]);
-            $dinero = 0;  
+            $valoracion = 0;  
         }
-        return view("transacciones.detail",compact('usuarios'));
+        return view("transacciones2.detail",compact('usuarios'));
     }
 
     public function index_categoria_fecha()
