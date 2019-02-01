@@ -68,7 +68,7 @@
                                 @endif
                               
                                 <a class="dropdown-item" href="{{ route('compras')}}">Compras</a>
-                                <a class="dropdown-item" href=>Ventas</a>
+                                <a class="dropdown-item" href="{{ route('ventas')}}">Ventas</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         Cerrar Sesión
                                 </a>

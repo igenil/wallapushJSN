@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Anuncio;
+use App\Categorias;
+use App\Transaccion;
 
 class VentasController extends Controller
 {
@@ -13,7 +17,9 @@ class VentasController extends Controller
      */
     public function index()
     {
-        //
+        $user=Auth::id();
+        $trans = Transaccion::where('id_anuncio', $user)->with('anuncio')->get();
+        return view('ventas.index', compact('trans', 'anuncio', 'user'));
     }
 
     /**

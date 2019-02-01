@@ -73,7 +73,7 @@ Route::post('editanuncio1/{id}', 'AnuncioController@update')->name("editarAnunci
 
 //Route::get('{chocos?}/compras/{id}', 'ComprasController@index');
 Route::get('compras', 'ComprasController@index')->name("compras");
-Route::get('ventas', 'VentasController@index');
+Route::get('ventas', 'VentasController@index')->name("ventas");
 Route::get('ranking', 'TransaccionController@index');
 
 //Añadir Valoracion
