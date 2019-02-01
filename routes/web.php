@@ -81,6 +81,9 @@ Route::post('editanuncio1/{id}', 'AnuncioController@update')->name("editarAnunci
 Route::get('compras', 'ComprasController@index')->name("compras");
 Route::get('ventas', 'VentasController@index')->name("ventas");
 Route::get('ranking', 'TransaccionController@index');
+Route::get('categoriafecha/{id_categoria}/{fecha1}/{fecha2}', 'TransaccionController@index_categoria_fecha')->name('categoriaFecha');
+
+
 
 //Añadir Valoracion
 Route::post('/addValoracion', 'ComprasController@store');

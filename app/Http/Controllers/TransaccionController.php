@@ -27,4 +27,22 @@ class TransaccionController extends Controller
         return view("transacciones.detail",compact('usuarios'));
     }
 
+    public function index_categoria_fecha()
+    {
+        $ventas = Anuncio::all();
+        $users = User::all();
+        $dinero = 0;
+        $usuarios= array();
+        foreach($users as $user){
+            $ventas = Anuncio::where('id_vendedor', $user->id)->where('vendido', 1)->get();
+            foreach($ventas as $venta){
+                $dinero += $venta->precio;
+            }
+            array_push($usuarios, ['name' => $user->name, 'dinero' => $dinero]);
+            $dinero = 0;  
+        }
+        // dd($usuarios);
+        return view("transacciones.detail",compact('usuarios'));
+    }
+
 }
