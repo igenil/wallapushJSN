@@ -40,7 +40,7 @@ class TransaccionController extends Controller
             array_push($usuarios, ['name' => $user->name, 'valoracion' => $valoracion]);
             $valoracion = 0;  
         }
-        return view("transacciones2.detail",compact('usuarios'));
+        return view("transacciones.detail2",compact('usuarios'));
     }
 
     public function index_categoria_fecha()
