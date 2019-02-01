@@ -10,22 +10,20 @@
                 <tr>
                 <th><i class="fas fa-cart-arrow-down"></i></th>
                 <th scope="col">Producto</th>
-                <th scope="col">Categoria</th>
                 <th scope="col">Precio</th>
-                <th scope="col">Estado</th>
-                <th scope="col">Descripcion</th>
+                <th scope="col">Descripción</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td style="color: #5dea79;"><b>COMPRADO</b></td>
-                    <td>{{$trans->anuncio->producto}}</td>
-                    <td></td>
-                    <td> €</td>
-                    <td></td>
-                </tr>
+                @foreach($trans as $tran)
+                    <tr>      
+                        <td style="color: #5dea79;"><b>COMPRADO</b></td>
+                        <td>{{$tran->anuncio->producto}}</td>
+                        <td>{{$tran->anuncio->precio}}</td> 
+                        <td>{{$tran->anuncio->descripcion}}</td>                     
+                    </tr>
+                @endforeach
             </tbody>
         </table>
-        {{$trans->links()}}
 </div>
 @endsection

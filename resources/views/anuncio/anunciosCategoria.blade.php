@@ -16,7 +16,7 @@
                             <div class="dropdown-divider"></div>
                             <p class="card-text" style="font-size: 13px">{{$anuncio->descripcion}}</p>
                             <div class="dropdown-divider"></div>
-                            <a href='showAnuncio/{{$anuncio->id}}'> 
+                            <a href='../showAnuncio/{{$anuncio->id}}'> 
                                 <button type="button" class="btn btn-outline-primary"><i class="fas fa-cart-plus"></i></button>
                             </a>   
                         </div>

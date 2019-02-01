@@ -71,6 +71,7 @@ Route::post('addanuncio1', 'AnuncioController@store');
 Route::delete('anuncio/{id}', 'AnuncioController@destroy');
 Route::post('editanuncio1/{id}', 'AnuncioController@update')->name("editarAnuncio");
 
+//Route::get('{chocos?}/compras/{id}', 'ComprasController@index');
 Route::get('compras/{id}', 'ComprasController@index');
 Route::get('ventas/{id}', 'VentasController@index');
 Route::get('ranking', 'TransaccionController@index');

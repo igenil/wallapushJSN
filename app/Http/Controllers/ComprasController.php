@@ -19,7 +19,7 @@ class ComprasController extends Controller
     public function index()
     {
         $user=Auth::id();
-        $trans = Transaccion::where('id_comprador', $user)->with('anuncio', 'usuario')->paginate(3);
+        $trans = Transaccion::where('id_comprador', $user)->with('anuncio', 'usuario')->get();
         return view('compras.index', compact('trans', 'usuario', 'anuncio', 'user'));
     }
 
