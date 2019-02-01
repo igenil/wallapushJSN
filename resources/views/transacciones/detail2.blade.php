@@ -13,8 +13,8 @@
         <table style="width:50%; float:center;" class="table">
             <thead>
             <tr>
-                <td><strong>VENDEDOR</strong></td>
-                <td><strong>TOTAL</strong></td>
+                <td><strong>USUARIO</strong></td>
+                <td><strong>VALORACION</strong></td>
                 <td></td>
             </tr>
             </thead>
