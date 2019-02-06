@@ -64,7 +64,7 @@ class TransaccionController extends Controller
             array_push($usuarios, ['name' => $user->name, 'dinero' => $dinero]);
             $dinero = 0;  
         }
-        // dd($usuarios);
+        //dd($usuarios);
         return view("transacciones.detail",compact('usuarios'));
     }
 

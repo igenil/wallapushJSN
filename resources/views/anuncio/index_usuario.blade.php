@@ -9,6 +9,18 @@
         <center><div class="alert-danger" style="width:30%;"> <center>{!! \Session::get('success') !!} </center></div></center>
         <br>
         @endif
+        <!--BUSCADOR-->
+    
+            <form class="navbar-form navbar-left" role="search">
+            {!! Form::open(['route' => 'anuncio.index_usuario', 'method'=> 'GET', 'class' => 'navbar-form navbar-left', 'role' => 'search']) !!}
+                <div class="form-group">
+                    <input class="form-control" placeholder="Buscar..." aria-label="Search" style="width: 10cm">                
+                </div>
+                <button class="btn btn-outline-dark" type="submit">Buscar</button>  
+            {!! Form::close() !!}     
+            </form>
+    
+        <br><br>
         <div class="container">
             <div class="grid-container">
             @foreach($anuncios as $anuncio)
