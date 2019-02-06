@@ -117,7 +117,6 @@ class AnuncioController extends Controller
 
             return redirect('/anuncios')->with('success',"Gracias por tu compra. No te olvides de valorarla");
         }
-
-       
     }
+
 }

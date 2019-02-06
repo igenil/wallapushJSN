@@ -10,17 +10,13 @@
         <br>
         @endif
         <!--BUSCADOR-->
-    
-            <form class="navbar-form navbar-left" role="search">
-            {!! Form::open(['route' => 'anuncio.index_usuario', 'method'=> 'GET', 'class' => 'navbar-form navbar-left', 'role' => 'search']) !!}
-                <div class="form-group">
-                    <input class="form-control" placeholder="Buscar..." aria-label="Search" style="width: 10cm">                
-                </div>
-                <button class="btn btn-outline-dark" type="submit">Buscar</button>  
-            {!! Form::close() !!}     
-            </form>
-    
-        <br><br>
+        <form class="form-inline my-2 my-lg-0" style="float:right" role="search" action="{{ url ('/filtroAnuncio') }}">
+            <div class="form-group">   
+                <input class="form-control mr-sm-2" name="producto" placeholder="Buscar..." aria-label="Search" style="width: 7cm"> 
+                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>                
+            </div>
+        </form>
+        <br><br><br>
         <div class="container">
             <div class="grid-container">
             @foreach($anuncios as $anuncio)
