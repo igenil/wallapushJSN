@@ -9,6 +9,7 @@ use App\Anuncio;
 use App\Categoria;
 use App\User;
 use App\Transaccion;
+use App\Image;
 
 use App\Http\Requests\AnuncioRequest;
 
@@ -49,6 +50,16 @@ class AnuncioController extends Controller
 
     public function store(AnuncioRequest $request)
     { 
+        $ruta = public_path().'/image';
+        $imagenOriginal= $request->file('imagen');
+        $imagen = Image::make($imagenOriginal);
+        $temp_name = $this->random_string() . '.' . $imagenOriginal->getClientOriginalExtension();
+        $imagen->resize(300,300);
+        $imagen->save($ruta . $temp_name, 100);
+        $img = new Image;
+        $img -> img =$temp_name;
+        $img -> save();
+
         $user=Auth::id();
         $anuncio = new Anuncio(array(
             'producto' => $request->get('producto'),
@@ -58,9 +69,17 @@ class AnuncioController extends Controller
             'descripcion' => $request->get('descripcion'),
             'id_vendedor' => $user,
         ));
-
         $anuncio->save();
         return redirect('/anuncios');
+    }
+
+    protected function random_string(){
+        $key = '';
+        $keys = array_merge( range('a','z'), range(0,9) );
+        for($i=0; $i<10; $i++){
+            $key .= $keys[array_rand($keys)];
+        }
+        return $key;
     }
 
     public function update(Request $request, $id)

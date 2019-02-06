@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Categoria;
 use App\User;
+use App\Image;
 
 class Anuncio extends Model
 {
@@ -21,5 +22,10 @@ class Anuncio extends Model
     public function usuario()
     {
         return $this->belongsTo(User::class, 'id_vendedor');
+    }
+
+    public function image()
+    {
+        return $this->hasMany(Image::class);
     }
 }
