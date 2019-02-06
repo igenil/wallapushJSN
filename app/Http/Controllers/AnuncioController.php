@@ -138,4 +138,12 @@ class AnuncioController extends Controller
         }
     }
 
+    public function filtrar_nombre(Request $req){
+
+        $producto = $req -> producto;   
+        $anuncios = Anuncio::where('producto', 'LIKE', "%$producto%")->orWhere('descripcion', 'LIKE', "%$producto%")->paginate(6);
+
+        return view('anuncio.index_usuario', compact('anuncios'));
+    }
+
 }
