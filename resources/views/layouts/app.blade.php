@@ -66,6 +66,7 @@
                                     <a class="dropdown-item" href="{{ url('/listCategorias') }}">Categorias</a>
                                     <a class="dropdown-item" href="{{ url('/ranking') }}">Ranking Ventas</a>
                                     <a class="dropdown-item" href="{{ url('/rankingvalor') }}">Ranking Valoraciones</a>
+                                    <a class="dropdown-item" href="{{ url('/categoriafecha1') }}">Ventas fecha</a>
                                 @endif
                               
                                 <a class="dropdown-item" href="{{ route('compras')}}">Compras</a>

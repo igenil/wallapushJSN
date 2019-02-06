@@ -25,9 +25,46 @@
                 <tr>
                     <td>{{$categoria->nombre}}</td>
                     <td>
-                        <a class="btn btn-info" style="color:#fff;" data-toggle="modal" data-target="#exampleModal2">
+                    <a class="btn btn-info" style="color:#fff;" data-toggle="modal" data-target="#exampleModal2{{$categoria->id}}">
                             Editar 
-                        </a>
+                    </a>
+                    @if(!$categorias->isEmpty())
+                    <div class="modal fade" id="exampleModal2{{$categoria->id}}"  role="dialog" aria-labelledby="exampleModal2Label" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModal2Label">Editar una categoria</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                                <center>
+                                    <div role="alert">
+                                        <form method="POST" action="editCategoriaForm/{{$categoria->id}}">
+                                            {{ csrf_field() }}
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <p>Nombre:</p>
+                                                        <input name="nombre" value="{{$categoria->nombre}}"  type="text" class="form-control" >
+                                                        <br>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <br>
+                                            <br>
+                                            <button type="submit" name="addcategoria" class="btn btn-success">{{ __("Editar") }}</button> &nbsp;           
+                                            <a href="{{ url('listCategorias/') }}" class="btn btn-danger">Cancelar</a> &nbsp;
+                                        </form>
+                                        <br>  
+                                    </div>
+                                </center>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                @endif
                     </td>
                     <td>
                         <form action="deleteCategoria/{{$categoria->id}}" method="post">
@@ -79,41 +116,4 @@
       </div>
     </div>
   </div>
-  @if(!$categorias->isEmpty())
-  <div class="modal fade" id="exampleModal2"  role="dialog" aria-labelledby="exampleModal2Label" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModal2Label">Editar una categoria</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <center>
-                <div role="alert">
-                    <form method="POST" action="editCategoriaForm/{{$categoria->id}}">
-                        {{ csrf_field() }}
-                        <table>
-                            <tr>
-                                <td>
-                                    <p>Nombre:</p>
-                                    <input name="nombre" value="{{$categoria->nombre}}"  type="text" class="form-control" >
-                                    <br>
-                                </td>
-                            </tr>
-                        </table>
-                        <br>
-                        <br>
-                        <button type="submit" name="addcategoria" class="btn btn-success">{{ __("Editar") }}</button> &nbsp;           
-                        <a href="{{ url('listCategorias/') }}" class="btn btn-danger">Cancelar</a> &nbsp;
-                    </form>
-                    <br>  
-                </div>
-            </center>
-        </div>
-      </div>
-    </div>
-  </div>
-  @endif
 @endsection
