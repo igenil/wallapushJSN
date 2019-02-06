@@ -55,21 +55,27 @@ class TransaccionController extends Controller
     {
         $categoria = Categoria::first();
         $ventas = Anuncio::where('id_categoria', $categoria->id)->where('vendido', 1)->get();
+        $trans= array();
         foreach($ventas as $venta){
-            $trans = Transaccion::where('id_anuncio',$venta->id)->whereBetween('created_at',[\Carbon\Carbon::yesterday()->subYear(),\Carbon\Carbon::yesterday()])->get();
+            $transa  = Transaccion::where('id_anuncio',$venta->id)->whereBetween('created_at',[\Carbon\Carbon::tomorrow()->subYear(),\Carbon\Carbon::tomorrow()])->with('anuncio','usuario')->get();
+            array_push($trans , [$transa]);
         }
-        // dd($trans);
-        return view("transacciones.detail",compact('trans'));
+        $categorias = Categoria::all();
+        // dd($categoria);
+        return view("transacciones.detail3",compact('trans','anuncio','categorias', 'categoria'));
     }
 
-    public function index_categoria_fecha($id_categoria, $fecha1, $fecha2)
+    public function index_categoria_fecha(Request $request)
     {
-        $ventas = Anuncio::where('id_categoria', $id_categoria)->where('vendido', 1)->get();
+        $ventas = Anuncio::where('id_categoria', $request->categoria)->where('vendido', 1)->get();
+        $categoria = Categoria::first();
+        $trans= array();
         foreach($ventas as $venta){
-            $trans = Transaccion::where('id_anuncio',$venta->id)->whereBetween('created_at',[$fecha1 ,$fecha2])->get();
+            $transa = Transaccion::where('id_anuncio',$venta->id)->whereBetween('created_at',[$request->fecha1 ,\Carbon\Carbon::createFromFormat('Y-m-d',$request->fecha2)->addDay()])->with('anuncio','usuario')->get();
+            array_push($trans , [$transa]);
         }
-        dd($trans);
-        return view("transacciones.detail",compact('trans'));
+        $categorias = Categoria::all();
+        return view("transacciones.detail3",compact('trans','anuncio','categorias', 'categoria'));
     }
 
 }

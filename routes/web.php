@@ -85,7 +85,7 @@ Route::get('ventas', 'VentasController@index')->name("ventas");
 Route::get('ranking', 'TransaccionController@index');
 Route::get('rankingvalor', 'TransaccionController@index_valoraciones');
 Route::get('categoriafecha1/', 'TransaccionController@index_categoria_fecha1');
-Route::get('categoriafecha/{id_categoria}/{fecha1}/{fecha2}', 'TransaccionController@index_categoria_fecha')->name('categoriaFecha');
+Route::post('categoriafecha/', 'TransaccionController@index_categoria_fecha');
 
 //Añadir Valoracion
 Route::post('/addValoracion/{id}', 'ComprasController@update')->name('addValoracion');
