@@ -30,6 +30,11 @@
                 </table>
             </form>
             <br>
+            <form action="{{route('pdfs', ['categoria'=> $cat[0]->id,'fecha1'=> $fecha1, 'fecha2' => $fecha2])}}">
+                @csrf
+                <button  type="submit" class = "btn btn-primary"><span class="fas fa-print"></button>
+            </form>
+            <br>
         <table style="width:50%; float:center;" class="table">
             <thead>
             <tr>

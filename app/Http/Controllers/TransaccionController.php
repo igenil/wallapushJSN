@@ -7,6 +7,8 @@ use App\Anuncio;
 use App\Transaccion;
 use App\Categoria;
 use App\User;
+use \PDF;
+
 
 class TransaccionController extends Controller
 {
@@ -61,8 +63,10 @@ class TransaccionController extends Controller
             array_push($trans , [$transa]);
         }
         $categorias = Categoria::all();
-        // dd($categoria);
-        return view("transacciones.detail3",compact('trans','anuncio','categorias', 'categoria'));
+        $cat = Categoria::where('id', $categoria->id)->get();
+        $fecha1 = \Carbon\Carbon::tomorrow()->subYear();
+        $fecha2 = \Carbon\Carbon::tomorrow();
+        return view("transacciones.detail3",compact('fecha1', 'fecha2', 'cat','trans','anuncio','categorias', 'categoria'));
     }
 
     public function index_categoria_fecha(Request $request)
@@ -74,8 +78,27 @@ class TransaccionController extends Controller
             $transa = Transaccion::where('id_anuncio',$venta->id)->whereBetween('created_at',[$request->fecha1 ,\Carbon\Carbon::createFromFormat('Y-m-d',$request->fecha2)->addDay()])->with('anuncio','usuario')->get();
             array_push($trans , [$transa]);
         }
+        $cat = Categoria::where('id',$request->categoria)->get();
+        $fecha1 = $request->fecha1;
+        $fecha2 = $request->fecha2;
         $categorias = Categoria::all();
-        return view("transacciones.detail3",compact('trans','anuncio','categorias', 'categoria'));
+        return view("transacciones.detail3",compact('fecha1', 'fecha2', 'cat','trans','anuncio','categorias', 'categoria'));
+    }
+
+    public function generarPDF($categoria, $fecha1, $fecha2)
+    {
+        $ventas = Anuncio::where('id_categoria', $categoria)->where('vendido', 1)->get();
+        $categoria = Categoria::where('id', $categoria)->get();
+
+        $trans= array();
+        foreach($ventas as $venta){
+            $transa = Transaccion::where('id_anuncio',$venta->id)->whereBetween('created_at',[$fecha1 , $fecha2])->with('anuncio','usuario')->get();
+            array_push($trans , [$transa]);
+        }
+        $fecha1 = \Carbon\Carbon::parse($fecha1)->format('d/m/Y');
+        $fecha2 = \Carbon\Carbon::parse($fecha2)->format('d/m/Y');
+        $pdf = PDF::loadView('transacciones.pdf',compact('trans', 'categoria', 'fecha1', 'fecha2'));
+        return $pdf->download('pdf.pdf');
     }
 
 }

@@ -86,6 +86,8 @@ Route::get('ranking', 'TransaccionController@index');
 Route::get('rankingvalor', 'TransaccionController@index_valoraciones');
 Route::get('categoriafecha1/', 'TransaccionController@index_categoria_fecha1');
 Route::post('categoriafecha/', 'TransaccionController@index_categoria_fecha');
+// Route::get('generarpdf/{trans}','TransaccionController@generarPDF');
+Route::get('generarpdf/{categoria}/{fecha1}/{fecha2}', 'TransaccionController@generarPDF')->name('pdfs');
 
 //Añadir Valoracion
 Route::post('/addValoracion/{id}', 'ComprasController@update')->name('addValoracion');
