@@ -26,6 +26,6 @@ class Anuncio extends Model
 
     public function image()
     {
-        return $this->hasMany(Image::class);
+        return $this->hasMany(Image::class, 'id_anuncio');
     }
 }

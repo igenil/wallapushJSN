@@ -22,7 +22,7 @@
             @foreach($anuncios as $anuncio)
                 <div class="card border-dark mb-3" style="width: 6cm;">
                     <h5 class="card-title bg-dark" style="color: white">{{$anuncio->producto}}</h5>
-                    <img src="..." class="card-img-top" alt="...">
+                <img src="{{asset('../storage/app/public/anuncio/'. $anuncio->image[0]->img)}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h3 class="card-text">{{$anuncio->precio}} €</h3>
                         <div class="dropdown-divider"></div>

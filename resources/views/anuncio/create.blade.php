@@ -17,8 +17,9 @@
         
         <div style="width: 80%; text-align: left; margin: 0 auto;">
             <center>
-            <form method="POST" action="{{url('/addanuncio1')}}">
+            <form method="POST" action="{{url('/addanuncio1')}}" enctype="multipart/form-data">
                 {{ csrf_field() }}
+                
                 <div class="form-group">
                     <label for="name" class="col-md-12 control-label">
                         {{ __("Producto") }}
@@ -52,6 +53,9 @@
                             {{ __("Descripcion") }}
                         </label>
                         <input id="descripcion" class="form-control" name="descripcion" style="width:400px; height:300px" value="{{ old('descripcion') }}" />
+                </div>
+                <div class="form-group">
+                    <input name="uploadedfile" type="file" />
                 </div>
                 <button type="submit" name="addanuncio" class="btn btn-success">
                     {{ __("Añadir") }}
