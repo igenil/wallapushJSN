@@ -62,12 +62,15 @@ class AnuncioController extends Controller
 
         $ruta = public_path().'/image';
         $imagenOriginal= $request->file('uploadedfile');
-        $image= Image::create([
-            'id_anuncio' => $anuncio->id,
-            'img' => $imagenOriginal->getClientOriginalName()
-        ]);
-        \Storage::disk('local')->put($imagenOriginal->getClientOriginalName(), \File::get($imagenOriginal));
-
+        
+        foreach($imagenOriginal as $ima) {  
+            
+            $image= Image::create([
+                'id_anuncio' => $anuncio->id,
+                'img' => $ima->getClientOriginalName()
+            ]);
+            \Storage::disk('local')->put($ima->getClientOriginalName(), \File::get($ima));
+        }
         return redirect('/anuncios');
     }
 

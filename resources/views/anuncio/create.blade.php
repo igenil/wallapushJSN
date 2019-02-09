@@ -1,6 +1,16 @@
 @extends('layouts.app')
 @section('content')
-
+<html>
+      <head>
+            <style>
+          .thumb {
+            height: 300px;
+            border: 1px solid #000;
+            margin: 10px 5px 0 0;
+          }
+        </style>
+    </head>
+    <body>
     <div class="container">
         <br>
         <center><h1>CREAR UN ANUNCIO</h1></center>
@@ -55,7 +65,9 @@
                         <input id="descripcion" class="form-control" name="descripcion" style="width:400px; height:300px" value="{{ old('descripcion') }}" />
                 </div>
                 <div class="form-group">
-                    <input name="uploadedfile" type="file" />
+                    <input name="uploadedfile[]" id="files" multiple type="file" />
+                    <br>
+                    
                 </div>
                 <button type="submit" name="addanuncio" class="btn btn-success">
                     {{ __("Añadir") }}
