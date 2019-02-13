@@ -7,8 +7,9 @@ use App\Image;
 
 class ImageController extends Controller
 {
-    public function indexeditanuncioanuncios($id){
-        $imagenes = Image::find($id);
-        dd($imagenes);
+    public function editimages($id){
+        $imagenes = Image::where('id_anuncio', $id)->get();
+
+        return view('anuncio.images', compact('imagenes'));
     }
 }

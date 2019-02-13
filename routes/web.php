@@ -70,7 +70,7 @@ Route::get('addanuncio', 'AnuncioController@indexaddanuncio');
 //Mostrar vista de editar anuncio
 Route::get('editanuncio/{id}', 'AnuncioController@indexeditanuncio');
 //Mostrar vista de editar imagenes de anuncios
-Route::get('editimagenesanuncio/{id}', 'ImageController@indexeditanuncioanuncios');
+Route::get('editimagenesanuncio/{id}', 'ImageController@editimages')->name('editimages');
 //Añadir un anuncio
 Route::post('addanuncio1', 'AnuncioController@store');
 //Eliminar un anuncio

@@ -30,7 +30,7 @@
                     </label>
                     <textarea class="form-control col-md-3" name="descripcion" rows="8">{{ $anuncio->descripcion }}</textarea>
             </div>
-            <a class="btn btn-primary" href="/editimagenesanuncio/{{$anuncio->id}}">Imágenes</a>
+            <a class="btn btn-primary" href="{{ route ('editimages', ['id'=> $anuncio->id]) }}">Imágenes</a>
             <br><br>
             <div class="form-group">
                     <label for="id_categoria"><b>CATEGORÍA:</b></label>
