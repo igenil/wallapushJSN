@@ -24,6 +24,10 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 Route::get('/listusers', 'UserController@index');
 //Mostrar Estados de Cuentas para Admin
 Route::get('/showEstadosCuentas', 'UserController@showEstadosCuentas')->name('showEstados');
+//FUNCION DESHABILITAR
+Route::put('/deshabilitar/{id}', 'UserController@deshabilitar')->name('deshabilitar');
+//FUNCION HABILITAR
+Route::put('/habilitar/{id}', 'UserController@habilitar')->name('habilitar');
 //Ir al perfil del Usuario
 Route::get('/perfil/{id}', 'UserController@perfil')->name('perfil');
 //Eliminar usuarios
