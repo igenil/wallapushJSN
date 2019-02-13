@@ -30,6 +30,8 @@
                     </label>
                     <textarea class="form-control col-md-3" name="descripcion" rows="8">{{ $anuncio->descripcion }}</textarea>
             </div>
+            <a class="btn btn-primary" href="/editimagenesanuncio/{{$anuncio->id}}">Imágenes</a>
+            <br><br>
             <div class="form-group">
                     <label for="id_categoria"><b>CATEGORÍA:</b></label>
                     <select class="form-control col-md-3" name="id_categoria" required>
@@ -82,7 +84,7 @@
     </center>
     <div style="text-align:center;">
     <a href="{{ url('/listAnuncios') }}">  
-        <button type="button" class="btn btn-danger">Cancel</button>
+        <button type="button" class="btn btn-danger">Cancelar</button>
     </a>
     <br><br>
 </div>
