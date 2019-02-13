@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-
+Route::group(['middleware' => 'auth'], function () {
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
 //Mostrar usuarios
@@ -71,6 +71,10 @@ Route::get('addanuncio', 'AnuncioController@indexaddanuncio');
 Route::get('editanuncio/{id}', 'AnuncioController@indexeditanuncio');
 //Mostrar vista de editar imagenes de anuncios
 Route::get('editimagenesanuncio/{id}', 'ImageController@editimages')->name('editimages');
+//eliminar  imagenes de anuncios
+Route::get('eliminarimagenesanuncio/{id}', 'ImageController@destroy')->name('eliminarimages');
+//Añadir un imagen
+Route::post('addimagen/{id}', 'ImageController@store')->name('addimagen');
 //Añadir un anuncio
 Route::post('addanuncio1', 'AnuncioController@store');
 //Eliminar un anuncio
@@ -91,6 +95,7 @@ Route::get('generarpdf/{categoria}/{fecha1}/{fecha2}', 'TransaccionController@ge
 
 //Añadir Valoracion
 Route::post('/addValoracion/{id}', 'ComprasController@update')->name('addValoracion');
+});
 
 
 
