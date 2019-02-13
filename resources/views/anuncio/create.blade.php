@@ -15,6 +15,10 @@
         <br>
         <center><h1>CREAR UN ANUNCIO</h1></center>
         <br>
+        @if(\Session::has('success'))
+        <center><div class="alert-danger" style="width:30%;"> <center>{!! \Session::get('success') !!} </center></div></center>
+        <br>
+        @endif
         @if (count($errors)>0)
         <center>
             <div class="alert alert-danger" role="alert" style="width:10cm;">
@@ -33,7 +37,7 @@
                 
                 <div class="form-group">
                     <label for="name" class="control-label">
-                        <b>PPRODUCTO:</b>
+                        <b>PRODUCTO:</b>
                     </label>
                     <input id="producto" class="form-control" name="producto" style="width:600px" value="{{ old('producto') }}" />
                 </div>
@@ -50,7 +54,7 @@
                     <label for="precio" class="col-md-8 control-label">
                         <b>PRECIO:</b>
                     </label>
-                    <input id="precio" class="form-control" name="precio" style="width:600px" value="{{ old('precio') }}" />
+                    <input id="precio" class="form-control" type="number" name="precio" style="width:600px" value="{{ old('precio') }}" />
                 </div>
                 <div class="form-group">
                     <label for="nuevo"><b>ESTADO:</b></label>
@@ -68,8 +72,7 @@
                 </div>
                 <div class="form-group">
                     <input name="uploadedfile[]" id="files" multiple type="file" />
-                    <br>
-                    
+                    <br>  
                 </div>
                 <button type="submit" name="addanuncio" class="btn btn-success">
                     {{ __("Añadir") }}
@@ -81,7 +84,6 @@
             </form>
         </center>
         </div>
-    
     </div>
     <br><br>
 </div>

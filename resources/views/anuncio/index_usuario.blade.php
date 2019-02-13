@@ -22,7 +22,7 @@
             @foreach($anuncios as $anuncio)
                 <div class="card border-dark mb-3" style="width:250px !important; heigth:300px !important;">
                     <h5 class="card-title bg-dark" style="color: white">{{$anuncio->producto}}</h5>
-                <img src="{{asset('../storage/app/public/anuncio/'. $anuncio->image[0]->img)}}" class="card-img-top" width="250px" heigth="300px">
+                    <img src="{{asset('../storage/app/public/anuncio/'. $anuncio->image[0]->img)}}" class="card-img-top" width="250px" heigth="300px">
                     <div class="card-body">
                         <h3 class="card-text">{{$anuncio->precio}} €</h3>
                         <div class="dropdown-divider"></div>
@@ -36,8 +36,7 @@
                         Subido por {{$anuncio->usuario->name}}
                     </div>
                 </div>
-            @endforeach
-            
+            @endforeach            
             <br>
             </div>
         </div>
