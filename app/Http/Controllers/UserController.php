@@ -22,20 +22,24 @@ class UserController extends Controller
         return view('user.showEstadosCuentas', compact('users1', 'users2'));
     }
 
-    public function deshabilitar($id){
+    public function deshabilitar(Request $request){
 
-        $users = User::find($id);
-        $users -> actived = false;
-        $users -> save();
-        
+        foreach($request->arrayUser as $user){
+            $users = User::find($user);
+            $users -> actived = false;
+            $users -> save();
+        }
+             
         return back()->with('succes', 'HAS DESAHABILITADO LA CUENTA!!');
     }
 
-    public function habilitar($id){
+    public function habilitar(Request $request){
 
-        $users = User::find($id);
-        $users -> actived = true;
-        $users -> save();
+        foreach($request->arrayUser as $user){
+            $users = User::find($user);
+            $users -> actived = true;
+            $users -> save();
+        }
         
         return back()->with('succes', 'HAS HABILITADO LA CUENTA!!');
     }
