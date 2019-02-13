@@ -35,7 +35,7 @@
                                     <div class="modal-body">
                                         <center>
                                             <div role="alert">
-                                            <form method="POST" action="{{ url('addValoracion/{{$tran->id}}') }}" id="form">
+                                            <form method="POST" action="{{ route ('addValoracion', ['id'=> $tran->id]) }}" id="form">
                                                     {{ csrf_field() }}
                                                     <div>
                                                         <p>Gracias por querer valorar este producto, agradecemos su valoración.<br>

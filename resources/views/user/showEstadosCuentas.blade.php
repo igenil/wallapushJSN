@@ -17,7 +17,7 @@
     <form method="POST" action="">
             {{ csrf_field() }}
             @foreach($users2 as $user)
-                <input type="checkbox" class="mb-2" name="id" value="{{$user->id}}">{{$user->name}}</br>
+                <input type="checkbox" class="mb-2" name="arrayUser[]" value="{{$user->id}}">{{$user->name}}</br>
             @endforeach
             <button type="submit" class="btn btn-primary mt-2">HABILITAR</button>
         </form>
