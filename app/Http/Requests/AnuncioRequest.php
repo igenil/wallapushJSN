@@ -28,7 +28,7 @@ class AnuncioRequest extends FormRequest
             'precio' => 'required|min:1',
             'id_categoria' => 'required',
             'descripcion' => 'required|string|max:1000',
-            'imagen' => 'required',
+            
          
         ];
     }

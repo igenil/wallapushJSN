@@ -16,6 +16,12 @@ class UserController extends Controller
         return view('user.index',compact('users'));
     }
 
+    public function showEstadosCuentas(){
+        $users1 = User::where('actived', 1)->paginate();
+        $users2 = User::where('actived', 0)->paginate();
+        return view('user.showEstadosCuentas', compact('users1', 'users2'));
+    }
+
     public function deshabilitar($id){
 
         $users = User::find($id);

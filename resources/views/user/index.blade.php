@@ -9,8 +9,8 @@
     @endif @endforeach
     <br>
     <div style="text-align: center">
-        <a href="">
-            <button class="btn btn-primary mb-2">VER ESTADOS DE CUENTA</button>
+        <a href={{ route('showEstados') }}>
+            <button class="btn btn-primary mb-4">VER ESTADOS DE CUENTA</button>
         </a>
         <table class="table">
             <thead>

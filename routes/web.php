@@ -22,10 +22,8 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 
 //Mostrar usuarios
 Route::get('/listusers', 'UserController@index');
-//Desahabilitar Usuario
-Route::put('/listusers/{id}', 'UserController@deshabilitar');
-//Habilitar Usuario
-Route::put('/listusers2/{id}', 'UserController@habilitar');
+//Mostrar Estados de Cuentas para Admin
+Route::get('/showEstadosCuentas', 'UserController@showEstadosCuentas')->name('showEstados');
 //Ir al perfil del Usuario
 Route::get('/perfil/{id}', 'UserController@perfil')->name('perfil');
 //Eliminar usuarios
@@ -76,7 +74,6 @@ Route::post('editanuncio1/{id}', 'AnuncioController@update')->name("editarAnunci
 //Filtrar anuncio
 Route::get('filtroAnuncio/', 'AnuncioController@filtrar_nombre');
 
-//Route::get('{chocos?}/compras/{id}', 'ComprasController@index');
 Route::get('compras', 'ComprasController@index')->name("compras");
 Route::get('ventas', 'VentasController@index')->name("ventas");
 Route::get('ranking', 'TransaccionController@index');
