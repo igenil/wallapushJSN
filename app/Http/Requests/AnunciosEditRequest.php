@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AnuncioRequest extends FormRequest
+class AnunciosEditRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,14 +22,14 @@ class AnuncioRequest extends FormRequest
      * @return array
      */
     public function rules()
-    {   
+    {
         return [
-            'producto'=> 'required|string|max:100',
-            'precio' => 'required|min:1',
+            'producto' => 'required|string|max:100',
+            'descripcion' => 'required|string|max:100',
             'id_categoria' => 'required',
-            'descripcion' => 'required|string|max:1000',
-            'imagen' => 'required',
-         
+            'precio' => 'required|min:1',
+            'nuevo' => 'required',
+            'vendido' => 'required',
         ];
     }
 }

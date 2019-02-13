@@ -34,10 +34,7 @@ Route::delete('/deleteuser/{id}', 'UserController@destroy');
 Route::get('/edituser/{id}', 'UserController@edit_perfil');
 //Actualizar Usuario
 Route::put('/updateuser/{id}', 'UserController@update');
-//Sumar saldo usuario
-Route::put('/edituser/edituser1/{id}', 'UserController@sumar_saldo');
-//Restar saldo usuario
-Route::put('/edituser/edituser2/{id}', 'UserController@restar_saldo');
+
 
 //Mostrar categorias
 Route::get('/listCategorias', 'CategoriaController@index');
@@ -48,11 +45,11 @@ Route::delete('/deleteCategoria/{id}', 'CategoriaController@destroy');
 //Mostrar formulario categorias
 Route::get('/addCategoria', 'CategoriaController@create');
 //Añadir categorias
-Route::post('/addCategoriaForm', 'CategoriaController@store');
+Route::post('/addCategoriaForm', 'CategoriaController@store')->name('addCategoriaForm');
 //Mostrar formulario editar categorias
 Route::get('/editCategoria/{id}', 'CategoriaController@edit');
 //Editar categorias
-Route::post('/editCategoriaForm/{id}', 'CategoriaController@update');
+Route::post('/editCategoriaForm/{id}', 'CategoriaController@update')->name('editarCategoriaForm');
 
 
 //Mostrar anuncios para usuarios
@@ -65,7 +62,7 @@ Route::get('showAnuncio/{id}', 'AnuncioController@show_anuncio');
 Route::get('comprar/{id_anuncio}/{id_comprador}/{id_vendedor}', 'AnuncioController@comprar')->name('comprar');
 
 //Mostrar anuncios para administrador
-Route::get('listAnuncios', 'AnuncioController@index');
+Route::get('/listAnuncios', 'AnuncioController@index');
 //Mostrar vista añadir anuncio
 Route::get('addanuncio', 'AnuncioController@indexaddanuncio');
 //Mostrar vista de editar anuncio

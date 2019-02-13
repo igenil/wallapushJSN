@@ -2,13 +2,16 @@
 
 @section('content')
 <div class="container">
+    <br>
     <h3 style="text-align: center">LISTA DE USUARIOS</h3>
-    <br/>
     @foreach (['danger', 'warning', 'success', 'info'] as $msg) @if(Session::has('alert-' . $msg)) 
         {{ Session::get('alert-' . $msg) }} 
     @endif @endforeach
     <br>
     <div style="text-align: center">
+        <a href="">
+            <button class="btn btn-primary mb-2">VER ESTADOS DE CUENTA</button>
+        </a>
         <table class="table">
             <thead>
             <tr>
@@ -39,7 +42,7 @@
                         @endif
                     </td>
                     <td>{{$user->created_at->format('Y/m/d')}}</td>
-                    <td>
+                    {{-- <td>
                         @if($user->actived == true)
                             <form action="listusers/{{$user->id}}" method="post">
                                 {{csrf_field()}}
@@ -54,7 +57,7 @@
                                 <button class="btn btn-primary" type="submit">Habilitar Cuenta</button>
                             </form>
                         @endif                
-                    </td>
+                    </td> --}}
                     <td><a href="{{action('UserController@perfil', $user->id)}}" class="btn btn-success"><i class="far fa-eye"></i> Ver Perfil</a></td>
                     <td>
                         <form action="deleteuser/{{$user->id}}" method="post">

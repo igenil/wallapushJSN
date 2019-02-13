@@ -11,6 +11,7 @@ use App\User;
 use App\Transaccion;
 use App\Image;
 
+use App\Http\Requests\AnunciosEditRequest;
 use App\Http\Requests\AnuncioRequest;
 
 class AnuncioController extends Controller
@@ -83,7 +84,7 @@ class AnuncioController extends Controller
         return $key;
     }
 
-    public function update(Request $request, $id)
+    public function update(AnunciosEditRequest $request, $id)
     {
         $user=Auth::id();
         $anuncio = Anuncio::find($id);

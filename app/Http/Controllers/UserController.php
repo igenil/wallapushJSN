@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\User;
 use Carbon\Carbon;
 
+use App\Http\Requests\UsuariosRequest;
+
 class UserController extends Controller
 {
     public function index()
@@ -43,13 +45,15 @@ class UserController extends Controller
     }
 
     //METODO ACTUALIZAR
-    public function update(Request $request, $id)
+    public function update(UsuariosRequest $request, $id)
     {
         $users = User::find($id);
         $users -> name = $request -> name;
         $users -> email = $request -> email;
         $users -> role = $request -> role;
         $users -> localidad = $request -> localidad;
+        $users -> saldo = $request -> saldo;
+
         $users -> save();
         return redirect()->route('perfil', ['id' => $id]);
     }
@@ -62,26 +66,5 @@ class UserController extends Controller
         return back();
     }
 
-    //METODO SUMAR SALDO
-    public function sumar_saldo($id){
-        $user = User::find($id);
-        $user -> saldo = $user->saldo+1;
-        $user -> save();
-
-        return back();
-    }
-
-    //METODO RESTAR SALDO
-    public function restar_saldo($id){
-        $user = User::find($id);
-        if($user -> saldo == 0){
-            $user -> saldo = 0;
-        }else{
-            $user -> saldo = $user->saldo-1;
-        }
-        $user -> save();
-
-        return back();
-    }
     
 }

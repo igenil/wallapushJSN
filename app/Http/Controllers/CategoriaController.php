@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Categoria;
 use Illuminate\Http\Request;
+use App\Http\Requests\CategoriasRequest;
 
 class CategoriaController extends Controller
 {
@@ -36,7 +37,7 @@ class CategoriaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoriasRequest $request)
     {
         $categorias= Categoria::create($request->all());
         $categorias = Categoria::All(); 
@@ -73,7 +74,7 @@ class CategoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoriasRequest $request, $id)
     {
         $categoria = Categoria::find($id);
         $categoria -> nombre = $request -> nombre;
@@ -91,8 +92,7 @@ class CategoriaController extends Controller
     public function destroy($id)
     {
         $categorias = Categoria::find($id);
-        $categorias->delete(); 
-        $categorias = Categoria::All();      
-        return view("categorias.detail", compact('categorias'))->with('correcto',"Categoria eliminada correctamente");
+        $categorias->delete();       
+        return back()->with('correcto',"Categoria eliminada correctamente");
     }
 }

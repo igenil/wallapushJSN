@@ -5,11 +5,22 @@
 <div class="container">
     <br>
     <h3 style="text-align: center">LISTA DE CATEGORIAS</h3>
-    
     <div style="text-align: center; ">
         <br>
             <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" > Añadir </button>
         <br/>
+        @if (count($errors)>0)
+            <br>
+            <center>
+                <div class="alert alert-danger" role="alert" style="width:10cm;">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li> {{ $error }} </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </center>
+        @endif
         <br>
         <center>
         <table style="width:50%; float:center;" class="table">
@@ -41,13 +52,13 @@
                             <div class="modal-body">
                                 <center>
                                     <div role="alert">
-                                        <form method="POST" action="editCategoriaForm/{{$categoria->id}}">
+                                        <form method="POST" action="{{ route ('editarCategoriaForm', ['id'=> $categoria->id]) }}">
                                             {{ csrf_field() }}
                                             <table>
                                                 <tr>
                                                     <td>
                                                         <p>Nombre:</p>
-                                                        <input name="nombre" value="{{$categoria->nombre}}"  type="text" class="form-control" >
+                                                        <input name="nombre" value="{{$categoria->nombre}}"  type="text" class="form-control" required>
                                                         <br>
                                                     </td>
                                                 </tr>
@@ -90,10 +101,12 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        
+        
+        <div class="modal-body">            
             <center>
-                <div role="alert">
-                    <form method="POST" action="{{url('addCategoriaForm/')}}">
+                <div role="alert">                
+                    <form method="POST" action="{{ url ('addCategoriaForm') }}">
                         {{ csrf_field() }}
                         <table>
                             <tr>
@@ -104,11 +117,12 @@
                                 </td>
                             </tr>
                         </table>
-                        <br>
+                        <br>                
                         <br>
                         <button type="submit" name="addcategoria" class="btn btn-success">{{ __("Añadir") }}</button> &nbsp;           
                         <a href="{{ url('listCategorias/') }}" class="btn btn-danger">Cancelar</a> &nbsp;
                     </form>
+
                     <br>  
                 </div>
             </center>
