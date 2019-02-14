@@ -46,7 +46,8 @@
                     <form action="anuncio/{{$anuncio->id}}" method="post">
                     {{ method_field('DELETE') }}
                     {{ csrf_field() }}
-                        <button class="btn btn-danger" type="submit"><span class="fas fa-trash-alt" ></span></button>
+                        <input name="_method" type="hidden" value="DELETE">
+                        <button class="btn btn-danger" type="submit" onclick="return confirm('¿Estás seguro de eliminar el anuncio?')"><span class="fas fa-trash-alt" ></span></button>
                     </form>
                 @endif
                 </td>

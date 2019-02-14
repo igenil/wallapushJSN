@@ -24,7 +24,7 @@
                             </td>
                             <td>Desde:<input id="fecha1"  name = "fecha1" type="date" class="form-control" ></td>
                             <td>Hasta:<input id="fecha2"  name = "fecha2" type="date" class="form-control" ></td>
-                            <td><br><button type="submit" class="btn btn-primary"> Buscar </button></td>
+                            <td><br><button type="submit" class="btn btn-primary"> <i class="fas fa-search"></i> </button></td>
                         </tr>
                     </thead>
                 </table>

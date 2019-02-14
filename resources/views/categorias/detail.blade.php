@@ -37,7 +37,7 @@
                     <td>{{$categoria->nombre}}</td>
                     <td>
                     <a class="btn btn-info" style="color:#fff;" data-toggle="modal" data-target="#exampleModal2{{$categoria->id}}">
-                            Editar 
+                        <span class="fas fa-pencil-alt" ></span>
                     </a>
                     @if(!$categorias->isEmpty())
                     <div class="modal fade" id="exampleModal2{{$categoria->id}}"  role="dialog" aria-labelledby="exampleModal2Label" aria-hidden="true">
@@ -81,7 +81,7 @@
                         <form action="deleteCategoria/{{$categoria->id}}" method="post">
                             {{csrf_field()}}
                             <input name="_method" type="hidden" value="DELETE">
-                            <button class="btn btn-danger" type="submit" onclick="return confirm('¿Estás seguro de eliminar la categoría?')">Eliminar</button>
+                            <button class="btn btn-danger" type="submit" onclick="return confirm('¿Estás seguro de eliminar la categoría?')"><span class="fas fa-trash-alt" ></span></button>
                         </form>
                     </td>
                 </tr>

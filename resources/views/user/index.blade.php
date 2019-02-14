@@ -23,6 +23,7 @@
                 <td><strong>ESTADO CUENTA</strong></td>
                 <td><strong>FECHA DE CREACIÓN</strong></td>
                 <td><strong>ACCIÓN</strong></td>
+                <td></td>
             </tr>
             </thead>
             <tbody>
@@ -42,12 +43,12 @@
                         @endif
                     </td>
                     <td>{{$user->created_at->format('Y/m/d')}}</td>
-                    <td><a href="{{action('UserController@perfil', $user->id)}}" class="btn btn-success"><i class="far fa-eye"></i> Ver Perfil</a></td>
+                    <td><a href="{{action('UserController@perfil', $user->id)}}" class="btn btn-success"><i class="far fa-eye"></i></a></td>
                     <td>
                         <form action="deleteuser/{{$user->id}}" method="post">
                             {{csrf_field()}}
                             <input name="_method" type="hidden" value="DELETE">
-                            <button class="btn btn-danger" type="submit" onclick="return confirm('¿Estás seguro de eliminar el usuario?')"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                            <button class="btn btn-danger" type="submit" onclick="return confirm('¿Estás seguro de eliminar el usuario?')"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </td>
                 </tr>
