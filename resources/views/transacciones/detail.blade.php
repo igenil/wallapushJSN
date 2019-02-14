@@ -41,7 +41,7 @@
             </tr>
             </thead>
             <tbody>
-                @foreach($usuarios as $usuario)
+                @foreach($usuarios2 as $usuario)
                     <tr>
                         @foreach($usuario as $cont)                          
                             <td>{{$cont}}</td>              
