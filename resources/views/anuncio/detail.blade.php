@@ -42,11 +42,13 @@
                     </a>
                 </td>
                 <td style="width:1%;">
-                <form action="anuncio/{{$anuncio->id}}" method="post">
-                {{ method_field('DELETE') }}
-                {{ csrf_field() }}
-                    <button class="btn btn-danger" type="submit"><span class="fas fa-trash-alt" ></span></button>
-                </form>
+                @if ($anuncio->vendido==0)
+                    <form action="anuncio/{{$anuncio->id}}" method="post">
+                    {{ method_field('DELETE') }}
+                    {{ csrf_field() }}
+                        <button class="btn btn-danger" type="submit"><span class="fas fa-trash-alt" ></span></button>
+                    </form>
+                @endif
                 </td>
                 </td>
             </tr>
