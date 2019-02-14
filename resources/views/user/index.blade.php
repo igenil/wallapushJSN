@@ -42,22 +42,6 @@
                         @endif
                     </td>
                     <td>{{$user->created_at->format('Y/m/d')}}</td>
-                    {{-- <td>
-                        @if($user->actived == true)
-                            <form action="listusers/{{$user->id}}" method="post">
-                                {{csrf_field()}}
-                                <input name="_method" type="hidden" value="PUT">
-                                <button class="btn btn-primary" type="submit">Deshabilitar Cuenta</button>
-                            </form>
-                        @endif  
-                        @if($user->actived == false)
-                            <form action="listusers2/{{$user->id}}" method="post">
-                                {{csrf_field()}}
-                                <input name="_method" type="hidden" value="PUT">
-                                <button class="btn btn-primary" type="submit">Habilitar Cuenta</button>
-                            </form>
-                        @endif                
-                    </td> --}}
                     <td><a href="{{action('UserController@perfil', $user->id)}}" class="btn btn-success"><i class="far fa-eye"></i> Ver Perfil</a></td>
                     <td>
                         <form action="deleteuser/{{$user->id}}" method="post">
