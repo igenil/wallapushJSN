@@ -23,9 +23,19 @@
             <br><br>
             <a class="btn btn-danger" href="{{ route ('eliminarimages', ['id'=> $imagen->id]) }}" style="color:blanchedalmond">Eliminar</a><br><br>
         </div>
-        <br>
     @endforeach
+    <br><br>
+    @if (Auth::user()->role == 'user')
+        <a href="{{ route ('indexEditAnuncioUser', ['id'=> $imagenes[0]->id_anuncio ]) }}">
+            <button class="btn btn-secondary">VOLVER</button>
+        </a>
+    @endif
 
+    @if (Auth::user()->role == 'admin')
+        <a href="{{ route ('indexEditAnuncio', ['id'=> $imagenes[0]->id_anuncio ]) }}">
+            <button class="btn btn-secondary">VOLVER</button>
+        </a>
+    @endif
+    <br><br>
 </center>
-
 @endsection

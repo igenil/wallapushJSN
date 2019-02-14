@@ -13,6 +13,7 @@ use App\Image;
 
 use App\Http\Requests\AnunciosEditRequest;
 use App\Http\Requests\AnuncioRequest;
+use App\Http\Requests\AnuncioUserRequest;
 use App\Http\Requests\CategoriasRequest;
 
 class AnuncioController extends Controller
@@ -43,6 +44,12 @@ class AnuncioController extends Controller
         $anuncio = Anuncio::find($id);
         $categorias = Categoria::all();
         return view("anuncio.edit", compact('anuncio','categorias'));
+    }
+
+    public function indexeditanuncioUser($id){
+        $anuncio = Anuncio::find($id);
+        $categorias = Categoria::all();
+        return view("anuncio.editUser", compact('anuncio','categorias'));
     }
 
     public function indexAnuncioCategoria($id){
@@ -90,6 +97,21 @@ class AnuncioController extends Controller
         return $key;
     }
 
+    public function updateUser(AnuncioUserRequest $request, $id){
+
+        $user=Auth::id();
+        $anuncio = Anuncio::find($id);
+        $anuncio -> producto = $request -> producto;
+        $anuncio -> id_categoria = $request -> id_categoria;
+        $anuncio -> precio = $request -> precio;
+        $anuncio -> nuevo = $request -> nuevo;
+        $anuncio -> descripcion = $request -> descripcion;
+        $anuncio -> id_vendedor = $user;
+        $anuncio -> save();
+        return redirect('/anuncios')->with('message', ['success', __("Anuncio edited successfully")]);
+
+    }
+
     public function update(AnunciosEditRequest $request, $id)
     {
         $user=Auth::id();
@@ -114,6 +136,17 @@ class AnuncioController extends Controller
         $anuncios = Anuncio::find($id);
         $anuncios->delete();
         return redirect('/listAnuncios')->with('success', "Anuncio borrado correctamente !");
+    }
+
+    public function destroyUser($id)
+    {
+        $imagenes = Image::where('id_anuncio',$id)->get();
+        for ($i=0; $i < count($imagenes); $i++) { 
+            $imagenes[$i]->delete();  
+        }
+        $anuncios = Anuncio::find($id);
+        $anuncios->delete();
+        return redirect('/anuncios')->with('danger', "Anuncio borrado correctamente !");
     }
 
     public function show_anuncio($id){
