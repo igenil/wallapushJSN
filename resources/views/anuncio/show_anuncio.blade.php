@@ -9,18 +9,18 @@
             <br>
         @endif
         <br>
-        <div class="card border-dark text-center" style="width: 25cm;">
+        <div class="card border-dark text-center" style="background-color:#cccccc; width: 25cm;">
             <div class="card-header bg-dark text-white">
                 <h4>{{$anuncio->producto}}</h4>
             </div>
             <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active" data-interval="500">
+                    <div class="carousel-item active" data-interval="1">
                         <img src="{{asset('../storage/app/public/anuncio/'. $anuncio->image[0]->img)}}" style="width:250px; heigth:300px" class="mt-3">
                     </div>
                     @foreach($anuncio->image as $ima)
                     @if($ima->img != $anuncio->image[0]->img)
-                        <div class="carousel-item " data-interval="500">
+                        <div class="carousel-item " data-interval="1">
                             <img src="{{asset('../storage/app/public/anuncio/'. $ima->img)}}" style="width:250px; heigth:300px" alt="...">
                         </div>
                     @endif
@@ -35,7 +35,7 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>            
-            <h3 class="card-title mt-2" style="color: #42f4d1">{{$anuncio->precio}} €</h3>
+            <h3 class="card-title mt-2" style="color: #000">{{$anuncio->precio}} €</h3>
             <div class="dropdown-divider"></div>
             <p class="card-text">{{$anuncio->descripcion}}</p>
             <div class="dropdown-divider"></div>
