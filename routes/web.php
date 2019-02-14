@@ -24,7 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 Route::get('/listusers', 'UserController@index');
 //Mostrar Estados de Cuentas para Admin
 Route::get('/showEstadosCuentas', 'UserController@showEstadosCuentas')->name('showEstados');
-//FUNCION DESHABILITAR
+//Funcion deshabilitar usuarios
 Route::post('/deshabilitar', 'UserController@deshabilitar')->name('deshabilitar');
 //FUNCION HABILITAR
 Route::post('/habilitar', 'UserController@habilitar')->name('habilitar');
