@@ -26,7 +26,28 @@ class TransaccionController extends Controller
             $dinero = 0;  
         }
         $usuarios = collect($usuarios)->sortBy('dinero')->reverse()->toArray();
-        return view("transacciones.detail",compact('usuarios'));
+
+        $users = User::all();
+        $valoracion = 0;
+        $usuarios2= array();
+        foreach($users as $user){
+            $ventas = Anuncio::where('id_vendedor', $user->id)->where('vendido', 1)->get();
+            foreach($ventas as $venta){
+                $trans = Transaccion::where('id_anuncio',$venta->id)->get();
+                
+                if ($trans[0]->valoracion==null){
+                    $aux=0;
+                } else{
+                    $aux=$trans[0]->valoracion;
+                }
+                $valoracion += $aux;
+            }
+            array_push($usuarios2, ['name' => $user->name, 'valoracion' => $valoracion]);
+            $valoracion = 0;  
+        }
+        $usuarios2 = collect($usuarios2)->sortBy('valoracion')->reverse()->toArray();
+        
+        return view("transacciones.detail",compact('usuarios','usuarios2'));
     }
 
     public function index_valoraciones()
