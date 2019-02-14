@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Carbon\Carbon;
-
+use App\Transaccion;
+use App\Anuncio;
+use App\Image;
 use App\Http\Requests\UsuariosRequest;
 
 class UserController extends Controller
@@ -71,9 +73,38 @@ class UserController extends Controller
     //ELIMINAR UN USUARIO
     public function destroy($id)
     {
-        $user = User::find($id);
-        $user->delete();      
-        return back();
+        $anuncios = Anuncio::where('id_vendedor', $id)->get();
+        $transaccion = Transaccion::where('id_comprador', $id)->get();
+        $comprado = False;
+
+        if (count($transaccion) == 0) {
+            for ($i=0; $i < count($anuncios); $i++) { 
+                if ($anuncios[$i]->vendido == 1){
+                    $comprado = True;
+                }
+            }
+            if (!$comprado) {
+                for ($i=0; $i < count($anuncios); $i++) { 
+                    $anuncio = Anuncio::find($anuncios[$i]->id);
+                    $imagenes = Image::where('id_anuncio',$anuncios[$i]->id)->get();
+                    $num = count($imagenes);
+                    for ($a=0; $a < $num; $a++) { 
+                        $imagenes = Image::find($imagenes[$a]->id);
+                        $imagenes->delete(); 
+                    }
+                    $anuncio->delete(); 
+                    return back();
+                }
+                
+                $user = User::find($id);
+                $user->delete(); 
+                return back();
+            }else{
+                return back()->with('error', 'Error al eliminar: este usuario tiene productos comprados o vendidos');
+            }
+        }else{
+            return back()->with('error', 'Error al eliminar: este usuario tiene productos comprados o vendidos');
+        }
     }
 
     

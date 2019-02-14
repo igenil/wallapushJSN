@@ -7,6 +7,10 @@
     @foreach (['danger', 'warning', 'success', 'info'] as $msg) @if(Session::has('alert-' . $msg)) 
         {{ Session::get('alert-' . $msg) }} 
     @endif @endforeach
+    @if(\Session::has('error'))
+    <center><div class="alert alert-danger" role="alert" style="width:50%;"> <center>{!! \Session::get('error') !!} </center></div></center>
+    <br>
+    @endif
     <br>
     <div style="text-align: center">
         <a href={{ route('showEstados') }}>
