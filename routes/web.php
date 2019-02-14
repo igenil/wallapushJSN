@@ -24,9 +24,9 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 Route::get('/listusers', 'UserController@index');
 //Mostrar Estados de Cuentas para Admin
 Route::get('/showEstadosCuentas', 'UserController@showEstadosCuentas')->name('showEstados');
-//Funcion deshabilitar usuarios
+//FUNCION DESHABILITAR
 Route::post('/deshabilitar', 'UserController@deshabilitar')->name('deshabilitar');
-//Funcion habilitar usuarios
+//FUNCION HABILITAR
 Route::post('/habilitar', 'UserController@habilitar')->name('habilitar');
 //Ir al perfil del Usuario
 Route::get('/perfil/{id}', 'UserController@perfil')->name('perfil');
@@ -55,7 +55,7 @@ Route::post('/editCategoriaForm/{id}', 'CategoriaController@update')->name('edit
 
 
 //Mostrar anuncios para usuarios
-Route::get('anuncios', 'AnuncioController@index_usuario');
+Route::get('/anuncios', 'AnuncioController@index_usuario');
 //Mostrar anuncios por categoria
 Route::get('anunciosCategoria/{id}', 'AnuncioController@indexAnuncioCategoria');
 //Mostrar anuncios para usuarios para comprar el producto
@@ -68,7 +68,9 @@ Route::get('/listAnuncios', 'AnuncioController@index');
 //Mostrar vista añadir anuncio
 Route::get('addanuncio', 'AnuncioController@indexaddanuncio');
 //Mostrar vista de editar anuncio
-Route::get('editanuncio/{id}', 'AnuncioController@indexeditanuncio');
+Route::get('editanuncio/{id}', 'AnuncioController@indexeditanuncio')->name('indexEditAnuncio');
+//Mostrar vista de editar anuncio para usuario
+Route::get('editanuncioUser/{id}', 'AnuncioController@indexeditanuncioUser')->name('indexEditAnuncioUser');
 //Mostrar vista de editar imagenes de anuncios
 Route::get('editimagenesanuncio/{id}', 'ImageController@editimages')->name('editimages');
 //eliminar  imagenes de anuncios
@@ -79,8 +81,12 @@ Route::post('addimagen/{id}', 'ImageController@store')->name('addimagen');
 Route::post('addanuncio1', 'AnuncioController@store');
 //Eliminar un anuncio
 Route::delete('anuncio/{id}', 'AnuncioController@destroy');
+//Eliminar un anuncio para usuarios
+Route::delete('deleteAnuncioUser/{id}', 'AnuncioController@destroyUser')->name('deleteAnuncio');
 //Editar un anuncio
 Route::post('editanuncio1/{id}', 'AnuncioController@update')->name("editarAnuncio");
+//Editar un anuncio de un usuario
+Route::post('editanuncioUser/{id}', 'AnuncioController@updateUser')->name("editarAnuncioUser");
 //Filtrar anuncio
 Route::get('filtroAnuncio/', 'AnuncioController@filtrar_nombre');
 //Compras por usuario
@@ -99,9 +105,3 @@ Route::get('generarpdf/{categoria}/{fecha1}/{fecha2}', 'TransaccionController@ge
 //Añadir Valoracion
 Route::post('/addValoracion/{id}', 'ComprasController@update')->name('addValoracion');
 });
-
-
-
-//Editar un usuario
-//Route::get('/edituser/{id}','Controller@edit');
-//Route::put('/editsuser/{id}','Controller@update');
