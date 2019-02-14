@@ -53,28 +53,32 @@ class AnuncioController extends Controller
 
     public function store(AnuncioRequest $request)
     { 
+
         $user=Auth::id();
-        $anuncio = Anuncio::create([
-            'producto' => $request->get('producto'),
-            'id_categoria' => $request->get('id_categoria'),
-            'precio' => $request->get('precio'),
-            'nuevo' => $request->get('nuevo'),
-            'descripcion' => $request->get('descripcion'),
-            'id_vendedor' => $user,
-        ]);
+            $anuncio = Anuncio::create([
+                'producto' => $request->get('producto'),
+                'id_categoria' => $request->get('id_categoria'),
+                'precio' => $request->get('precio'),
+                'nuevo' => $request->get('nuevo'),
+                'descripcion' => $request->get('descripcion'),
+                'id_vendedor' => $user,
+            ]);
 
         $ruta = public_path().'/image';
         $imagenOriginal= $request->file('uploadedfile');
-        
+
         foreach($imagenOriginal as $ima) {  
-            
+        
             $image= Image::create([
                 'id_anuncio' => $anuncio->id,
                 'img' => $ima->getClientOriginalName()
             ]);
             \Storage::disk('local')->put($ima->getClientOriginalName(), \File::get($ima));
+
         }
         return redirect('/anuncios');
+
+          
     }
 
     protected function random_string(){

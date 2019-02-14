@@ -15,8 +15,8 @@
         <br>
         <center><h1>CREAR UN ANUNCIO</h1></center>
         <br>
-        @if(\Session::has('success'))
-        <center><div class="alert-danger" style="width:30%;"> <center>{!! \Session::get('success') !!} </center></div></center>
+        @if(\Session::has('imagen'))
+        <center><div class="alert alert-danger" role="alert" style="width:50%;"> <center>{!! \Session::get('imagen') !!} </center></div></center>
         <br>
         @endif
         @if (count($errors)>0)

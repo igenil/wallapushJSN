@@ -128,8 +128,9 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'uploadedfile' => [
+            'required' => 'El campo Imagen es requerido.',
+
         ],
     ],
 
