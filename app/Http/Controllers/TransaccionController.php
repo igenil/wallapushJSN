@@ -46,32 +46,8 @@ class TransaccionController extends Controller
             $valoracion = 0;  
         }
         $usuarios2 = collect($usuarios2)->sortBy('valoracion')->reverse()->toArray();
-        
-        return view("transacciones.detail",compact('usuarios','usuarios2'));
-    }
 
-    public function index_valoraciones()
-    {
-        $users = User::all();
-        $valoracion = 0;
-        $usuarios= array();
-        foreach($users as $user){
-            $ventas = Anuncio::where('id_vendedor', $user->id)->where('vendido', 1)->get();
-            foreach($ventas as $venta){
-                $trans = Transaccion::where('id_anuncio',$venta->id)->get();
-                
-                if ($trans[0]->valoracion==null){
-                    $aux=0;
-                } else{
-                    $aux=$trans[0]->valoracion;
-                }
-                $valoracion += $aux;
-            }
-            array_push($usuarios, ['name' => $user->name, 'valoracion' => $valoracion]);
-            $valoracion = 0;  
-        }
-        $usuarios = collect($usuarios)->sortBy('valoracion')->reverse()->toArray();
-        return view("transacciones.detail2",compact('usuarios'));
+        return view("transacciones.detail",compact('usuarios','usuarios2'));
     }
 
     public function index_categoria_fecha1()

@@ -64,8 +64,7 @@
                                     <a class="dropdown-item" href="{{ url('/listusers') }}">Usuarios</a>
                                     <a class="dropdown-item" href="{{ url('/listAnuncios') }}">Anuncios</a>
                                     <a class="dropdown-item" href="{{ url('/listCategorias') }}">Categorias</a>
-                                    <a class="dropdown-item" href="{{ url('/ranking') }}">Ranking Ventas</a>
-                                    <a class="dropdown-item" href="{{ url('/rankingvalor') }}">Ranking Valoraciones</a>
+                                    <a class="dropdown-item" href="{{ url('/ranking') }}">Rankings</a>
                                     <a class="dropdown-item" href="{{ url('/categoriafecha1') }}">Ventas fecha</a>
                                 @endif
                               

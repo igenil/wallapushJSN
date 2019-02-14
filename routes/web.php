@@ -83,14 +83,17 @@ Route::delete('anuncio/{id}', 'AnuncioController@destroy');
 Route::post('editanuncio1/{id}', 'AnuncioController@update')->name("editarAnuncio");
 //Filtrar anuncio
 Route::get('filtroAnuncio/', 'AnuncioController@filtrar_nombre');
-
+//Compras por usuario
 Route::get('compras', 'ComprasController@index')->name("compras");
+//Ventas por usuario
 Route::get('ventas', 'VentasController@index')->name("ventas");
+//Rankings de ventas y valoraciones
 Route::get('ranking', 'TransaccionController@index');
-Route::get('rankingvalor', 'TransaccionController@index_valoraciones');
+//Vista anuncios por categoria y fecha
 Route::get('categoriafecha1/', 'TransaccionController@index_categoria_fecha1');
+//Busqueda de anuncios por categoria y fecha
 Route::post('categoriafecha/', 'TransaccionController@index_categoria_fecha');
-// Route::get('generarpdf/{trans}','TransaccionController@generarPDF');
+//Crea un pdf de un informe entre dos fechas
 Route::get('generarpdf/{categoria}/{fecha1}/{fecha2}', 'TransaccionController@generarPDF')->name('pdfs');
 
 //Añadir Valoracion
