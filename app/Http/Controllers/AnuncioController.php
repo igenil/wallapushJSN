@@ -107,6 +107,10 @@ class AnuncioController extends Controller
 
     public function destroy($id)
     {
+        $imagenes = Image::where('id_anuncio',$id)->get();
+        for ($i=0; $i < count($imagenes); $i++) { 
+            $imagenes[$i]->delete();  
+        }
         $anuncios = Anuncio::find($id);
         $anuncios->delete();
         return redirect('/listAnuncios')->with('success', "Anuncio borrado correctamente !");

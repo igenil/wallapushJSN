@@ -39,9 +39,11 @@
             <div class="dropdown-divider"></div>
             <p class="card-text">{{$anuncio->descripcion}}</p>
             <div class="dropdown-divider"></div>
-            <a href="{{route('comprar', ['id_anuncio'=> $anuncio->id,'id_comprador'=> Auth::user()->id, 'id_venderdor' => $anuncio->usuario->id])}}">
-                <button class="btn btn-outline-success mb-2">Comprar</button>
-            </a>
+            @if (Auth::user()->id != $anuncio->usuario->id)
+                <a href="{{route('comprar', ['id_anuncio'=> $anuncio->id,'id_comprador'=> Auth::user()->id, 'id_venderdor' => $anuncio->usuario->id])}}">
+                    <button class="btn btn-outline-success mb-2">Comprar</button>
+                </a>
+            @endif
             <div class="card-footer text-muted">
                 Subido por {{$anuncio->usuario->name}}
             </div>
