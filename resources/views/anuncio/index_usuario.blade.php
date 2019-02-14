@@ -31,17 +31,17 @@
                         <a href='showAnuncio/{{$anuncio->id}}'> 
                             <button type="button" class="btn btn-outline-primary mb-1"><i class="fas fa-cart-plus"></i></button>
                         </a> 
-                        @if($anuncio->id_vendedor == auth()->user()->id)  
-                        <a href="editanuncioUser/{{$anuncio->id}}">
-                            <button class = "btn btn-primary mb-1"><span class="fas fa-pencil-alt" ></span></button>
-                        </a>
-                        @endif
-                        @if ($anuncio->vendido==0 && $anuncio->id_vendedor == auth()->user()->id)
-                            <form action="{{ route ('deleteAnuncio', ['id'=> $anuncio->id]) }}" method="post">
-                            {{ method_field('DELETE') }}
-                            {{ csrf_field() }}
-                                <button class="btn btn-danger" type="submit"><span class="fas fa-trash-alt" ></span></button>
-                            </form>
+                        @if($anuncio->vendido==0 && $anuncio->id_vendedor == auth()->user()->id) 
+                            <div class="card-footer" style="text-align: center">
+                                <a href="{{ route ('indexEditAnuncioUser', ['id'=> $anuncio->id]) }}">
+                                    <button class = "btn btn-primary mb-1"><span class="fas fa-pencil-alt" ></span> <b>EDITAR</b></button>
+                                </a>
+                                <form action="{{ route ('deleteAnuncio', ['id'=> $anuncio->id]) }}" method="post">
+                                {{ method_field('DELETE') }}
+                                {{ csrf_field() }}
+                                    <button class="btn btn-danger" type="submit"><span class="fas fa-trash-alt" ></span> <b>ELIMINAR</b></button>
+                                </form>
+                            </div>
                         @endif
                     </div>
                     <div class="card-footer text-muted" style="font-size: 13px">
