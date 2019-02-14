@@ -26,7 +26,7 @@ Route::get('/listusers', 'UserController@index');
 Route::get('/showEstadosCuentas', 'UserController@showEstadosCuentas')->name('showEstados');
 //Funcion deshabilitar usuarios
 Route::post('/deshabilitar', 'UserController@deshabilitar')->name('deshabilitar');
-//FUNCION HABILITAR
+//Funcion habilitar usuarios
 Route::post('/habilitar', 'UserController@habilitar')->name('habilitar');
 //Ir al perfil del Usuario
 Route::get('/perfil/{id}', 'UserController@perfil')->name('perfil');
