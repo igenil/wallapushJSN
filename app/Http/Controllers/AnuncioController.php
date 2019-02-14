@@ -13,6 +13,7 @@ use App\Image;
 
 use App\Http\Requests\AnunciosEditRequest;
 use App\Http\Requests\AnuncioRequest;
+use App\Http\Requests\CategoriasRequest;
 
 class AnuncioController extends Controller
 {
@@ -45,8 +46,9 @@ class AnuncioController extends Controller
     }
 
     public function indexAnuncioCategoria($id){
-        $anuncios =Anuncio::where('id_categoria',$id)->get();
-        return view("anuncio.anunciosCategoria", compact('anuncios'));
+        $anuncios =Anuncio::where('id_categoria',$id)->where('vendido', 0)->get();
+        $categoria = Categoria::find($id);
+        return view("anuncio.anunciosCategoria", compact('anuncios','categoria'));
     }
 
     public function store(AnuncioRequest $request)
