@@ -36,9 +36,16 @@
                                 <form action="{{ route ('deleteAnuncio', ['id'=> $anuncio->id]) }}" method="post">
                                 {{ method_field('DELETE') }}
                                 {{ csrf_field() }}
-                                <a class = "btn btn-primary" href="{{ route ('indexEditAnuncioUser', ['id'=> $anuncio->id]) }}">
-                                    <span class="fas fa-pencil-alt" ></span>
-                                </a>
+                                    @if (Auth::user()->role == 'user')
+                                        <a class = "btn btn-primary" href="{{ route ('indexEditAnuncioUser', ['id'=> $anuncio->id]) }}">
+                                            <span class="fas fa-pencil-alt" ></span>
+                                        </a>
+                                    @endif
+                                    @if (Auth::user()->role == 'admin')
+                                        <a class = "btn btn-primary" href="{{ route ('indexEditAnuncio', ['id'=> $anuncio->id]) }}">
+                                            <span class="fas fa-pencil-alt" ></span>
+                                        </a>
+                                    @endif
                                     <button class="btn btn-danger" type="submit"><span class="fas fa-trash-alt" ></span></button>
                                 </form>
                             </div>

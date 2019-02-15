@@ -55,7 +55,7 @@ Route::post('/editCategoriaForm/{id}', 'CategoriaController@update')->name('edit
 
 
 //Mostrar anuncios para usuarios
-Route::get('/anuncios', 'AnuncioController@index_usuario');
+Route::get('/anuncios', 'AnuncioController@index_usuario')->name('anuncios');
 //Mostrar anuncios por categoria
 Route::get('anunciosCategoria/{id}', 'AnuncioController@indexAnuncioCategoria');
 //Mostrar anuncios para usuarios para comprar el producto

@@ -52,7 +52,6 @@
                 <label for="estado"><b>ESTADO:</b></label>
                 <select class="form-control col-md-3" name="nuevo" required>
                     @if ($anuncio->nuevo==0)
-                    <option value="0" selected></option>
                         <option value="0" selected>Nuevo</option>
                         <option value="1">Seminuevo</option>
                     @else
@@ -67,7 +66,7 @@
         </form>
     </center>
     <div style="text-align:center;">
-    <a href="{{ url('/anuncios') }}">  
+    <a href="{{ url('anuncios') }}">  
         <button type="button" class="btn btn-danger">Cancelar</button>
     </a>
     <br><br>

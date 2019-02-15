@@ -33,7 +33,7 @@ class TransaccionController extends Controller
         foreach($users as $user){
             $ventas = Anuncio::where('id_vendedor', $user->id)->where('vendido', 1)->get();
             foreach($ventas as $venta){
-                $trans = Transaccion::where('id_anuncio',$venta->id)->get();
+                $trans = Transaccion::where('id_anuncio', $venta->id)->get();
                 
                 if ($trans[0]->valoracion==null){
                     $aux=0;

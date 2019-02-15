@@ -52,7 +52,6 @@
                 <label for="estado"><b>ESTADO:</b></label>
                 <select class="form-control col-md-3" name="nuevo" required>
                     @if ($anuncio->nuevo==0)
-                    <option value="0" selected></option>
                         <option value="0" selected>Nuevo</option>
                         <option value="1">Seminuevo</option>
                     @else
